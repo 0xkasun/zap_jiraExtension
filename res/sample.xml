@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OWASPZAPReport generated="Fri, 16 Oct 2015 10:57:11" version="2.4.2">
+    <site host="localhost" name="https://localhost:9443" port="9443" ssl="true">
+        <alerts>
+            <alertitem>
+                <pluginid>10015</pluginid>
+                <alert>Incomplete or No Cache-control and Pragma HTTP Header Set</alert>
+                <riskcode>1</riskcode>
+                <confidence>2</confidence>
+                <riskdesc>Low (Medium)</riskdesc>
+                <desc>The cache-control and pragma HTTP header have not been set properly or are missing allowing the
+                    browser and proxies to cache content.
+                </desc>
+                <instances>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/login.jsp</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.validate.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.form.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.cookie.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/dialog.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/template.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/yui/build/animation/animation-min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/WSRequest.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/main.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/cookies.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/customControls.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.widget.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/yui/build/yahoo/yahoo-min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/yui/build/yahoo-dom-event/yahoo-dom-event.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/yui/build/selector/selector-min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/index.jsp?loginStatus=true</uri>
+                    </instance>
+                </instances>
+                <count>23</count>
+                <solution>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store,
+                    must-revalidate, private; and that the pragma HTTP header is set with no-cache.
+                </solution>
+                <reference>https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Web_Content_Caching
+                </reference>
+                <cweid>525</cweid>
+            </alertitem>
+            <alertitem>
+                <pluginid>10016</pluginid>
+                <alert>Web Browser XSS Protection Not Enabled</alert>
+                <riskcode>1</riskcode>
+                <confidence>2</confidence>
+                <riskdesc>Low (Medium)</riskdesc>
+                <desc>Web Browser XSS Protection is not enabled, or is disabled by the configuration of the
+                    'X-XSS-Protection' HTTP response header on the web server
+                </desc>
+                <instances>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/login.jsp</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/styles/css/main.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/css/global.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/css/dialog.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/css/carbonFormStyles.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.validate.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.form.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.cookie.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/css/jqueryui/jqueryui-themeroller.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/dialog.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/template.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/yui/build/animation/animation-min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/WSRequest.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/main.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/cookies.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/customControls.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</uri>
+                    </instance>
+                </instances>
+                <count>28</count>
+                <solution>Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP
+                    response header to '1'.
+                </solution>
+                <otherinfo>The X-XSS-Protection HTTP response header allows the web server to enable or disable the web
+                    browser's XSS protection mechanism. The following values would attempt to enable it:
+                    X-XSS-Protection: 1; mode=block
+                    X-XSS-Protection: 1; report=http://www.example.com/xss
+                    The following values would disable it:
+                    X-XSS-Protection: 0
+                    The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and
+                    Safari (WebKit).
+                    Note that this alert is only raised if the response body could potentially contain an XSS payload
+                    (with a text-based content type, with a non-zero length).
+                </otherinfo>
+                <reference>https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+                    https://blog.veracode.com/2014/03/guidelines-for-setting-security-headers/
+                </reference>
+                <cweid>933</cweid>
+                <wascid>14</wascid>
+            </alertitem>
+            <alertitem>
+                <pluginid>10021</pluginid>
+                <alert>X-Content-Type-Options Header Missing</alert>
+                <riskcode>1</riskcode>
+                <confidence>2</confidence>
+                <riskdesc>Low (Medium)</riskdesc>
+                <desc>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older
+                    versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially
+                    causing the response body to be interpreted and displayed as a content type other than the declared
+                    content type. Current (early 2014) and legacy versions of Firefox will use the declared content type
+                    (if one is set), rather than performing MIME-sniffing.
+                </desc>
+                <instances>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/login.jsp</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/styles/css/main.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/css/global.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/css/dialog.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/css/carbonFormStyles.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.validate.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.form.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.cookie.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/css/jqueryui/jqueryui-themeroller.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/dialog.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/template.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/yui/build/animation/animation-min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/WSRequest.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/main.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/cookies.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/customControls.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</uri>
+                    </instance>
+                </instances>
+                <count>28</count>
+                <solution>Ensure that the application/web server sets the Content-Type header appropriately, and that it
+                    sets the X-Content-Type-Options header to 'nosniff' for all web pages.
+                    If possible, ensure that the end user uses a standards-compliant and modern web browser that does
+                    not perform MIME-sniffing at all, or that can be directed by the web application/web server to not
+                    perform MIME-sniffing.
+                </solution>
+                <otherinfo>This issue still applies to error type pages (401, 403, 500, etc) as those pages are often
+                    still affected by injection issues, in which case there is still concern for browsers sniffing pages
+                    away from their actual content type.
+                    At "High" threshold this scanner will not alert on client or server error responses.
+                </otherinfo>
+                <reference>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx
+                    https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+                </reference>
+                <wascid>15</wascid>
+            </alertitem>
+            <alertitem>
+                <pluginid>10020</pluginid>
+                <alert>X-Frame-Options Header Not Set</alert>
+                <riskcode>2</riskcode>
+                <confidence>2</confidence>
+                <riskdesc>Medium (Medium)</riskdesc>
+                <desc>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking'
+                    attacks.
+                </desc>
+                <instances>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/styles/css/main.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/css/global.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/css/dialog.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/css/carbonFormStyles.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.validate.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.form.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.cookie.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/css/jqueryui/jqueryui-themeroller.css</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/dialog/js/dialog.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/template.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/yui/build/animation/animation-min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/WSRequest.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/main.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/cookies.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/customControls.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</uri>
+                    </instance>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/jquery.ui.widget.min.js</uri>
+                    </instance>
+                </instances>
+                <count>25</count>
+                <solution>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web
+                    pages returned by your site (if you expect the page to be framed only by pages on your server (e.g.
+                    it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page
+                    to be framed, you should use DENY. ALLOW-FROM allows specific websites to frame the web page in
+                    supported web browsers).
+                </solution>
+                <otherinfo>At "High" threshold this scanner will not alert on client or server error responses.
+                </otherinfo>
+                <reference>
+                    http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx
+                </reference>
+            </alertitem>
+            <alertitem>
+                <pluginid>10012</pluginid>
+                <alert>Password Autocomplete in browser</alert>
+                <riskcode>1</riskcode>
+                <confidence>2</confidence>
+                <riskdesc>Low (Medium)</riskdesc>
+                <desc>AUTOCOMPLETE attribute is not disabled in HTML FORM/INPUT element containing password type input.
+                    Passwords may be stored in browsers and retrieved.
+                </desc>
+                <instances>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/admin/js/main.js</uri>
+                        <param>input</param>
+                        <evidence>&lt;input type="password" id="txtPassword" name="password" size="30"/&gt;</evidence>
+                    </instance>
+                </instances>
+                <count>1</count>
+                <solution>Turn off AUTOCOMPLETE attribute in form or individual input elements containing password by
+                    using AUTOCOMPLETE='OFF'
+                </solution>
+                <reference>http://msdn.microsoft.com/library/default.asp?url=/workshop/author/forms/autocomplete_ovr.asp
+                </reference>
+                <cweid>525</cweid>
+            </alertitem>
+            <alertitem>
+                <pluginid>90022</pluginid>
+                <alert>Application Error Disclosure</alert>
+                <riskcode>2</riskcode>
+                <confidence>2</confidence>
+                <riskdesc>Medium (Medium)</riskdesc>
+                <desc>This page contains an error/warning message that may disclose sensitive information like the
+                    location of the file that produced the unhandled exception. This information can be used to launch
+                    further attacks against the web application. The alert could be a false positive if the error
+                    message is found inside a documentation page.
+                </desc>
+                <instances>
+                    <instance>
+                        <uri>https://localhost:9443/carbon/server-admin/system_status_ajaxprocessor.jsp</uri>
+                        <param>N/A</param>
+                        <evidence>JDBC Driver</evidence>
+                    </instance>
+                </instances>
+                <count>1</count>
+                <solution>Review the source code of this page. Implement custom error pages. Consider implementing a
+                    mechanism to provide a unique error reference/identifier to the client (browser) while logging the
+                    details on the server side and not exposing them to the user.
+                </solution>
+                <reference>
+                </reference>
+                <cweid>200</cweid>
+                <wascid>13</wascid>
+            </alertitem>
+        </alerts>
+    </site>
+</OWASPZAPReport>
