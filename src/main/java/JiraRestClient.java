@@ -7,7 +7,11 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.core.util.Base64;
 import org.jdom.Document;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.naming.AuthenticationException;
 public class JiraRestClient {
@@ -58,7 +62,7 @@ public class JiraRestClient {
         XmlParser parser=new XmlParser();
         Document parsedDoc;
         try {
-            parsedDoc = parser.readFromXml("/home/kausn/Desktop/rest-client/rest-client/res", "sample.xml");
+            parsedDoc = parser.readFromXml("res", "sample.xml");
             parser.createIssueFormat(parsedDoc);
 
         }catch (Exception e){

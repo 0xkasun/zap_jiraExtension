@@ -54,8 +54,6 @@ public class XmlParser {
 
         }
 
-
-
         return issue;
     }
 }
