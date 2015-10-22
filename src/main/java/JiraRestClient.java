@@ -25,8 +25,8 @@ public class JiraRestClient {
 		try {
 			//Get Projects
 			String projects = invokeGetMethod(auth, BASE_URL+"/rest/api/2/project");
-			System.out.println(projects);
-			JSONArray projectArray = new JSONArray(projects);
+            //System.out.println(projects);
+            JSONArray projectArray = new JSONArray(projects);
 			for (int i = 0; i < projectArray.length(); i++) {
 				JSONObject proj = projectArray.getJSONObject(i);
 				System.out.println("Key:"+proj.getString("key")+", Name:"+proj.getString("name"));
@@ -40,14 +40,18 @@ public class JiraRestClient {
 
             HtmlParser htmlParser=new HtmlParser();
             Document doc =htmlParser.ReadHtmldoc("res", "sample.html");
-            String isuueList[]=htmlParser.CreateIssueList(doc);
-            for(int i=0;i<3;i++) {
-                String issue = invokePostMethod(auth, BASE_URL + "/rest/api/2/issue", isuueList[i]);
+            String issueList[] = htmlParser.CreateIssueList(doc, "PROD");
+
+            int issueCount = Integer.parseInt(issueList[999]);
+            for (int i = 0; i < issueCount; i++) { //create Issues in jira
+
+                String issue = invokePostMethod(auth, BASE_URL + "/rest/api/2/issue", issueList[i]);
                 System.out.println(issue);
-                JSONObject issueObj = new JSONObject(issue);
-                String newKey = issueObj.getString("key");
-                System.out.println("Key:" + newKey);
+                //JSONObject issueObj = new JSONObject(issue);
+                // String newKey = issueObj.getString("key");
+                //System.out.println("Key:" + newKey);
             }
+
 
 //			//Update Issue
 //			String editIssueData = "{\"fields\":{\"assignee\":{\"name\":\"test\"}}}";
