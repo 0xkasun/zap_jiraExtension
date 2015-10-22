@@ -8,10 +8,10 @@ import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.core.util.Base64;
-import org.jdom.Document;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.nodes.Document;
 
 import javax.naming.AuthenticationException;
 public class JiraRestClient {
@@ -20,54 +20,54 @@ public class JiraRestClient {
 
     public static void main(String[] args) {
 
-//		String auth = new String(Base64.encode("kmbkck1@gmail.com:kmbkck211"));
-//
-//		try {
-//			//Get Projects
-//			String projects = invokeGetMethod(auth, BASE_URL+"/rest/api/2/project");
-//			System.out.println(projects);
-//			JSONArray projectArray = new JSONArray(projects);
-//			for (int i = 0; i < projectArray.length(); i++) {
-//				JSONObject proj = projectArray.getJSONObject(i);
-//				System.out.println("Key:"+proj.getString("key")+", Name:"+proj.getString("name"));
-//			}
-//
-//			//Create Issue
-//
+		String auth = new String(Base64.encode("kmbkck1@gmail.com:kmbkck211"));
+
+		try {
+			//Get Projects
+			String projects = invokeGetMethod(auth, BASE_URL+"/rest/api/2/project");
+			System.out.println(projects);
+			JSONArray projectArray = new JSONArray(projects);
+			for (int i = 0; i < projectArray.length(); i++) {
+				JSONObject proj = projectArray.getJSONObject(i);
+				System.out.println("Key:"+proj.getString("key")+", Name:"+proj.getString("name"));
+			}
+
+			//Create Issue
+
 //			String createIssueData = "{\"fields\": {\"project\": {\"key\":\"PROD\"}," +
 //					"\"summary\":\"REST Test\",\"description\": \"Creating of an issue using project keys and issue type " +
 //					"names using the REST API\",\"issuetype\":{\"name\":\"Bug\"},\"priority\":{\"name\":\"High\"}}}";
-//			String issue = invokePostMethod(auth, BASE_URL+"/rest/api/2/issue", createIssueData);
-//			System.out.println(issue);
-//			JSONObject issueObj = new JSONObject(issue);
-//			String newKey = issueObj.getString("key");
-//			System.out.println("Key:"+newKey);
-//
+
+            HtmlParser htmlParser=new HtmlParser();
+            Document doc =htmlParser.ReadHtmldoc("res", "sample.html");
+            String isuueList[]=htmlParser.CreateIssueList(doc);
+            for(int i=0;i<3;i++) {
+                String issue = invokePostMethod(auth, BASE_URL + "/rest/api/2/issue", isuueList[i]);
+                System.out.println(issue);
+                JSONObject issueObj = new JSONObject(issue);
+                String newKey = issueObj.getString("key");
+                System.out.println("Key:" + newKey);
+            }
+
 //			//Update Issue
 //			String editIssueData = "{\"fields\":{\"assignee\":{\"name\":\"test\"}}}";
 //			invokePutMethod(auth, BASE_URL+"/rest/api/2/issue/"+newKey, editIssueData);
 //
 //			invokeDeleteMethod(auth, BASE_URL+"/rest/api/2/issue/DEMO-13");
-//
-//		} catch (AuthenticationException e) {
-//			System.out.println("Username or Password wrong!");
-//			e.printStackTrace();
-//		} catch (ClientHandlerException e) {
-//			System.out.println("Error invoking REST method");
-//			e.printStackTrace();
-//		} catch (JSONException e) {
-//			System.out.println("Invalid JSON output");
-//			e.printStackTrace();
-//		}
-        XmlParser parser=new XmlParser();
-        Document parsedDoc;
-        try {
-            parsedDoc = parser.readFromXml("res", "sample.xml");
-            parser.createIssueFormat(parsedDoc);
 
-        }catch (Exception e){
+		} catch (AuthenticationException e) {
+			System.out.println("Username or Password wrong!");
+			e.printStackTrace();
+		} catch (ClientHandlerException e) {
+			System.out.println("Error invoking REST method");
+			e.printStackTrace();
+		} catch (JSONException e) {
+			System.out.println("Invalid JSON output");
+			e.printStackTrace();
+		}
 
-        }
+
+
 
 
     }
