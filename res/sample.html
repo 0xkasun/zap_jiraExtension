@@ -1,0 +1,3623 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZAP Scanning Report</title>
+</head>
+<body text="#000000">
+<p>
+<strong>ZAP Scanning Report</strong>
+</p>
+<p>
+
+</p>
+<p>
+<strong>Summary of Alerts</strong>
+</p>
+<table width="45%" border="0">
+<tr bgcolor="#666666">
+<td width="45%" height="24"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">Risk 
+      Level</font></strong></td><td width="55%" align="center"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">Number 
+      of Alerts</font></strong></td>
+</tr>
+<tr bgcolor="#e8e8e8">
+<td><font size="2" face="Arial, Helvetica, sans-serif"><a href="#high">High</a></font></td><td align="center"><font size="2" face="Arial, Helvetica, sans-serif">2</font></td>
+</tr>
+<tr bgcolor="#e8e8e8">
+<td><font size="2" face="Arial, Helvetica, sans-serif"><a href="#medium">Medium</a></font></td><td align="center"><font size="2" face="Arial, Helvetica, sans-serif">3</font></td>
+</tr>
+<tr bgcolor="#e8e8e8">
+<td><font size="2" face="Arial, Helvetica, sans-serif"><a href="#low">Low</a></font></td><td align="center"><font size="2" face="Arial, Helvetica, sans-serif">6</font></td>
+</tr>
+<tr bgcolor="#e8e8e8">
+<td><font size="2" face="Arial, Helvetica, sans-serif"><a href="#info">Informational</a></font></td><td align="center"><font size="2" face="Arial, Helvetica, sans-serif">0</font></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+<p>
+<strong>Alert Detail</strong>
+</p>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="red" height="24">
+<td width="20%" valign="top"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif"><a name="high"></a>High (Medium)</font></strong></td><td width="80%"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">Path Traversal</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">The Path Traversal attack technique allows an attacker access to files, directories, and commands that potentially reside outside the web document root directory. An attacker may manipulate a URL in such a way that the web site will execute or reveal the contents of arbitrary files anywhere on the web server. Any device that exposes an HTTP-based interface is potentially vulnerable to Path Traversal.</p>
+<p align="justify"></p>
+<p align="justify">Most web sites restrict user access to a specific portion of the file-system, typically called the "web document root" or "CGI root" directory. These directories contain the files intended for user access and the executable necessary to drive web application functionality. To access files or execute commands anywhere on the file-system, Path Traversal attacks will utilize the ability of special-characters sequences.</p>
+<p align="justify"></p>
+<p align="justify">The most basic Path Traversal attack uses the "../" special-character sequence to alter the resource location requested in the URL. Although most popular web servers will prevent this technique from escaping the web document root, alternate encodings of the "../" sequence may help bypass the security filters. These method variations include valid and invalid Unicode-encoding ("..%u2216" or "..%c0%af") of the forward slash character, backslash characters ("..\") on Windows-based servers, URL encoded characters "%2e%2e%2f"), and double URL encoding ("..%255c") of the backslash character.</p>
+<p align="justify"></p>
+<p align="justify">Even if the web server properly restricts Path Traversal attempts in the URL path, a web application itself may still be vulnerable due to improper handling of user-supplied input. This is a common problem of web applications that use template mechanisms or load static text from files. In variations of the attack, the original URL parameter value is substituted with the file name of one of the web application's dynamic scripts. Consequently, the results can reveal source code because the file is interpreted as text instead of an executable script. These techniques often employ additional special characters such as the dot (".") to reveal the listing of the current working directory, or "%00" NULL characters in order to bypass rudimentary file extension checks.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/log-view/index.jsp?keyword=index.jsp&amp;<wbr></wbr>pageNumber=10&amp;<wbr></wbr>type=</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>keyword</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>index.jsp</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/role/role-mgt.jsp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>domain</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>/role-mgt.jsp</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>2</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a whitelist of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a blacklist). However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.</p>
+<p align="justify"></p>
+<p align="justify">When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as "red" or "blue."</p>
+<p align="justify"></p>
+<p align="justify">For filenames, use stringent whitelists that limit the character set to be used. If feasible, only allow a single "." character in the filename to avoid weaknesses, and exclude directory separators such as "/". Use a whitelist of allowable file extensions.</p>
+<p align="justify"></p>
+<p align="justify">Warning: if you attempt to cleanse your data, then do so that the end result is not in the form that can be dangerous. A sanitizing mechanism can remove characters such as '.' and ';' which may be required for some exploits. An attacker can try to fool the sanitizing mechanism into "cleaning" data into a dangerous form. Suppose the attacker injects a '.' inside a filename (e.g. "sensi.tiveFile") and the sanitizing mechanism removes the character resulting in the valid filename, "sensitiveFile". If the input data are now assumed to be safe, then the file may be compromised. </p>
+<p align="justify"></p>
+<p align="justify">Inputs should be decoded and canonicalized to the application's current internal representation before being validated. Make sure that your application does not decode the same input twice. Such errors could be used to bypass whitelist schemes by introducing dangerous inputs after they have been checked.</p>
+<p align="justify"></p>
+<p align="justify">Use a built-in path canonicalization function (such as realpath() in C) that produces the canonical version of the pathname, which effectively removes ".." sequences and symbolic links.</p>
+<p align="justify"></p>
+<p align="justify">Run your code using the lowest privileges that are required to accomplish the necessary tasks. If possible, create isolated accounts with limited privileges that are only used for a single task. That way, a successful attack will not immediately give the attacker access to the rest of the software or its environment. For example, database applications rarely need to run as the database administrator, especially in day-to-day operations.</p>
+<p align="justify"></p>
+<p align="justify">When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.</p>
+<p align="justify"></p>
+<p align="justify">Run your code in a "jail" or similar sandbox environment that enforces strict boundaries between the process and the operating system. This may effectively restrict which files can be accessed in a particular directory or which commands can be executed by your software.</p>
+<p align="justify"></p>
+<p align="justify">OS-level examples include the Unix chroot jail, AppArmor, and SELinux. In general, managed code may provide some protection. For example, java.io.FilePermission in the Java SecurityManager allows you to specify restrictions on file operations.</p>
+<p align="justify"></p>
+<p align="justify">This may not be a feasible solution, and it only limits the impact to the operating system; the rest of your application may still be subject to compromise.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">http://projects.webappsec.org/Path-Traversal</p>
+<p align="justify">http://cwe.mitre.org/data/definitions/22.html</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>22</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>33</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="red" height="24">
+<td width="20%" valign="top"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif"><a name="high"></a>High (Medium)</font></strong></td><td width="80%"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">Cross Site Scripting (Reflected)</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.</p>
+<p align="justify">When an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.</p>
+<p align="justify"></p>
+<p align="justify">There are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.</p>
+<p align="justify">Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.</p>
+<p align="justify">Persistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/keystoremgt/view-keystore.jsp?keyStore=%27%3E%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E&amp;<wbr></wbr>pageNumber=0</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>keyStore</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>'&gt;&lt;script&gt;alert(1);&lt;/script&gt;</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>'&gt;&lt;script&gt;alert(1);&lt;/script&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>1</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Phase: Architecture and Design</p>
+<p align="justify">Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p>
+<p align="justify">Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft's Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.</p>
+<p align="justify"></p>
+<p align="justify">Phases: Implementation; Architecture and Design</p>
+<p align="justify">Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies.</p>
+<p align="justify">For any data that will be output to another web page, especially any data that was received from external inputs, use the appropriate encoding on all non-alphanumeric characters.</p>
+<p align="justify">Consult the XSS Prevention Cheat Sheet for more details on the types of encoding and escaping that are needed.</p>
+<p align="justify"></p>
+<p align="justify">Phase: Architecture and Design</p>
+<p align="justify">For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.</p>
+<p align="justify"></p>
+<p align="justify">If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated.</p>
+<p align="justify"></p>
+<p align="justify">Phase: Implementation</p>
+<p align="justify">For every web page that is generated, use and specify a character encoding such as ISO-8859-1 or UTF-8. When an encoding is not specified, the web browser may choose a different encoding by guessing which encoding is actually being used by the web page. This can cause the web browser to treat certain sequences as special, opening up the client to subtle XSS attacks. See CWE-116 for more mitigations related to encoding/escaping.</p>
+<p align="justify"></p>
+<p align="justify">To help mitigate XSS attacks against the user's session cookie, set the session cookie to be HttpOnly. In browsers that support the HttpOnly feature (such as more recent versions of Internet Explorer and Firefox), this attribute can prevent the user's session cookie from being accessible to malicious client-side scripts that use document.cookie. This is not a complete solution, since HttpOnly is not supported by all browsers. More importantly, XMLHTTPRequest and other powerful browser technologies provide read access to HTTP headers, including the Set-Cookie header in which the HttpOnly flag is set.</p>
+<p align="justify"></p>
+<p align="justify">Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a whitelist of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a blacklist). However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.</p>
+<p align="justify"></p>
+<p align="justify">When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as "red" or "blue."</p>
+<p align="justify"></p>
+<p align="justify">Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">http://projects.webappsec.org/Cross-Site-Scripting</p>
+<p align="justify">http://cwe.mitre.org/data/definitions/79.html</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>79</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>8</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="orange" height="24">
+<td width="20%" valign="top"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif"><a name="medium"></a>Medium (Medium)</font></strong></td><td width="80%"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">X-Frame-Options Header Not Set</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/product/about.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/docs/userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/docs/signin_userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/global.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/styles/css/main.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/css/jqueryui/jqueryui-themeroller.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/css/dialog.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/documentation.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/carbonFormStyles.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/images/favicon.ico</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.form.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.validate.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.cookie.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.widget.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/WSRequest.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/main.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>155</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Other information</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>
+<p align="justify">At "High" threshold this scanner will not alert on client or server error responses.</p>
+</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="orange" height="24">
+<td width="20%" valign="top"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif"><a name="medium"></a>Medium (Medium)</font></strong></td><td width="80%"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">Application Error Disclosure</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>N/A</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>HTTP 500 Internal server error</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>1</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify"></p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>200</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>13</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="orange" height="24">
+<td width="20%" valign="top"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif"><a name="medium"></a>Medium (Medium)</font></strong></td><td width="80%"><strong><font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">Buffer Overflow</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Buffer overflow errors are characterized by the overwriting of memory spaces of the background web process, which should have never been modified intentionally or unintentionally. Overwriting values of the IP (Instruction Pointer), BP (Base Pointer) and other registers causes exceptions, segmentation faults, and other process errors to occur. Usually these errors end execution of the application in an unexpected way. </p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>updatedBefore</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=OMAMifejqhJDjhsAjrSSdxHaOtUeNOyAGLSdsEvNgkQxhImZTmNwSemwqQMOsZIDnvMhMLjtLpNVpxIFLnWFMLooWSbsusgAnIrboJnywSbnuGPFZQPtOwKUcjxsMufXuDDqalQyhAOAtRoVWfjpjhwinixtqKLprtxvqFIwYXOwFsESOGjTjuKsfFeksQRQFDbjXUyoyIXlCTuvKrDFQxuUTqfmpWkiEyNLuWccnBiwDxoGHZabEFhspZyjhtQJJrRVFBEZKcdYlCrXsrDoRmulPsFpgbfESpAsDaQjsghvjFbpauVWQDBeSCtGIyVxAXmDbDLQBtkGjGwaDenMDwtVMiEjGcwHGHrvsyXJJQKgFEutqhKOGlZupKOYwNIdvBsYjkgEQVtngdSDGMNmBduBPxRmexGIqeWONfjFRGLfBLODQBILydpcITjbqCiOkfbiTgVsBcPHKZAnUxmpSyYvcqcwXUgMKSxeQTdogJEIYIauSpNwtJpdTcVIMVpxngkbtLDQeCwuOXAOIouwdgKZHZEqtdAleaMVfbQTUfJHxwatIJdigAmuukZDlBQMiWuCLbeACjBFYinNCJeUuagQgPKwvrUPBuAOQbEsDohdaWmXEFQufKumygBhvuWkKSRTlBXUdkXwCRwuhCjGCgQGquwPPThTGxQVmbegUyoceXcllnJhkLRdXesvIOFltNapMtvLKXWaYBXWODEfXMIepbhYGmtwbYPHmGaVuHNdrdbrWxlGsdmaIVVIsdCeSndYQdLuuUWgFEIyMaJSkTygKXckqLsHiIRlgDEqXLOJnTGUtkluYIaQMNsHgeSGHyMjmIDqiVkPXsrvyCPciqvbNkqIrnsWQQutTXUvOFHkhgNnkiSxERwUmmFYGMWyGUjraeuhnhMQBGnHNnSNXnICfcuEoNJgDMfKdpqJQyvhlyrjofEKNTGfsqFBiZdHtnsamsqgIIonxZZwZAoYqsTiNdOXrqqvKNOWNkgJdBWcEldVAsrmaZAhZmETeLjTVoxjSJWVbhQXXkyDDjrXOldDTJsVOsqYXMQGShokTiBaUPkAHimnCNSTtibSPjGgAEssnNNTXUctCDAJTOHJJlFXtsPhkRgLYqQqQSuhfRgTKLoWmGABqOLifTGaiTGkOQMuXfYcxTdiRkjVjNhTttlGvGtcmuxyTQkoelGiHiFGUEUSJMwSabRoTbfxwpJYKgNRoyAXSyURsuIoHVMPidyQPQSxaAARnJYFZphfeJQjJxRqjZCwAkAgirjjsyoEGQMDomJwOibUCaMrAURCyYdJylSJSiuvUNhvOcROWlMDaFZYCKiTOZbGMxAglEVCVvZVBWcmsLIJrcXwYumvnoYQWxtAIJdUUDUtbqmNyxgOoiFnFihwknIahTgPlvlRXxLxtPZBdkHAgtwHJuSTUfYPLjAqvWQwyAQuGVvXnCBXbQIlPSoeussTgbRFyEXTnasGCXxbCgNaZPcPoEnRfpSGPgcbCQhytHtctfYaZFanEuTOEeHmiVngieowYtqmyKEOXoOhAqQtZsEjceMaGkjrxggDauGyHYDGTebIrZRjwPLJuQYXDfbKIiVAjACPxIrvlHOFNgLitbdesVWpJbIHqWiMtBkBfFkRsHFGeMeTfGZsJkKSnYvVExmLsiaXvghQfkCcpVtWIyJUheGrMTPJpBkExXuOnQRlJlobRxjaOQYZOubqZPYuGblvfdaOtolPctPvYJVFWaKwJUcHsiMuNYYQpvUMORCdlFPFdHKalwaFOPxDYqtJcOEcQPpvWZwNKHNmuPFiPdLtXlEmTdTFRVWCvpTkDkjjNndEiTZxIghXKZiEpVhJogOUwNoUSofrKgGdZkGTygpUhIlbgrZxMNYnyocHluVbmyVZQSLEyRxkUEExXeumDvSIDmKQHXDsYSakhRhjluwnkAqHENSGTiYgZNYcnucSanIuGnhtIlMiqivDLaVnxEBjIapSuYmcNTWTMNDEyVVMeKCDEvhXNbOgGjGPwKfxMNKZHTKSKlyZwxKCQkeyiCEqOAXkgFpeBTSlPtfAIDnunWWOqZugYVxJhPjjsvBSAXqTZRCXWDrdLKND&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>createdAfter</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=DUJLBQbQmNyTTgHnlYpbPTsJmSkKbXjGSYAioHFwZqvEFEOClyvstwOHhjHuAJKXSAYqiXHZOZVQWYfEdqmJmpEWPPgVcXgjbptQCEEkDfeVfPLQitetaNYnskksMKCHhRNATFyeHPWtjMlYBTVOEgXyHSTZIbklTqVURkuOTUFQvCONOcujRirfQJYjHRKeAsanqOeBsNnhRpUrrNbDNUSlcrmmBDhwWaEChqPDkniwaJluUPgvpphZOVfXwjVqMeDLbeHldgWPeTftvfoqFicWqPhATvqrBlkaROfwHrFAGTPlIPupoxqnjftvgHMChaYiTRXwrLtTojFDaYMmKoEtHhCQSaugUvONGWdRgvgxumjjOmVNbJhZMTmkVBZYFlMcMAEXAwxfOXSeHDhgrnkVbbsOXgBWPlhfKjHjGhbiLNmsHxsxWHoWhWUQVkOBDPQfVYNZXHHsaiBPFBUXPEGEBIeAQpUyLlGjQNohWLaabWQlVgTBykHbTmNTOtwgQDiuDrcDBbIMfmpKIwAUHHZddKSCeCgaYYwUSdFMjIAcbDyyHGPXHMrwDbEGZCrXVeqKatXFFHbDRWDHaqhtCZopGWjkgUTWuXgyLPadFVvaiiEPvCJksMqRTFTGRsIbFwMHpYWyXNtXwoXbghrOffbewDTtXtdZSVeKATvQfhjMWJohOZffObHOVutmxjogaCIsNcDKLQMJvUDhSCaIoQlqKVUnNhqICbevWQYJmgmmWIxAJEitQiEMUvJHSdZBdLcPNKFEviKJpqpSrvnIEAnIamFmJxsRFYJrjONNhQCAtONxsGtZcNyoNAStMqXsKKLIAfFAlMwRRvVDJQwkZFqRBpKHtxhFQtGufjVBjVCgDjIiCgCIwXoDyfFGwinkMeEhAHmEiSInWuObDECIVdweGHPVYbvtSZdNrBnbkvUHjXTBoMeopZTlHVieknWhqJNLkJXHrGsHdRSMbmkvrIUtdrEWgfSbRLFboJDgSZWuWXcesddVaDjaoVNDYYMCLTnSJHlxHIbwCyxaTmrGMEdyfCermQPcJNErttuSBPdnlUYyUhqwTBDNGHvJXWarXnqrvqTYrMTOQdVvVvmhJZMjOUBjhcXKDMkqkuBKbUuoAgsOpvXaeXWTYcWwMsDHIbsrjNbtlQqkhmbWbryDAJDetqVqyeoDPEcqJtevTEODQTeUeLQXRCgnxlatLbVlkXAyHfNOaPNPdRXDZYElQxtYpjBmgAlMTMCcpsGHbIffbqhRCiYdvCMErMlTYceQIRGyobwAJWMSSExIFYOucgILuNXRlRoAMJQQeAaxZJyshQKuerxRsMAGHwmqRGXrQetqEmpnAGbliSLwcBUGClmFiMKomvhmREOUxBAKyQIgnQHPvSAFPpEkcDVZatvpYLwoQoVJuyIbkyMhlDrFOJHTktaOVjboFnBSaydceSTvYvJXstPUvUvKCFJsbPfRsQcAxHjpwdQQLxKwHrREppYdOUuffxHCFBadmwxvRXTuNUpMepZPgBLRaTtgshyJWvMrrRpydIiqECYfUhWlBrKnUlcNxfJFHjhnqFFwnmhWACpHtyUvRVxmJWsBCdcXGNHHBbZeQxGeXqJLFDIgpVnDtjvkkRmstoTlFBwjTdIyExtfVQqXfFtJCKTKaPcjQANmZSAKmbgefXpQxixIweAmkaKFHeWHLAsahrkMrBLCujPEgEmtNcNJTKQBDJhFucaZlbAiUqYQKckPBPCWXsHKAhCasETtWoUxOvJhIImUMNutDJrBMWZtYNaKvGdKmwKPknUwHkbGxcxChENPJUPlmaMOQmJkcWZsNoSyvmTtiUujejYJWmMoIePqQJTRUUdogHaqkflHqQmgrfQhtTsKbqlCcTtlYxQNaKUHgqlSZFlGjWHfTnJDqFEMoHJirgKLnNtPfCyLoNOXRiwGQVCQmVaRohXqKOWCRCeTsxBBwFnquwwBgyGIfOesXylEhRQqxPfXACYluOADEpYHWRZXuBtVnWSUNDBvyyTLcVCkYiBfaEJNyitljfekYphSjYpgChbyuBKYegnerCrynMbQfxpIkjnHZnDYPQpkIfBLdDcMyGfT&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>commentedUser</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=VwPVCsUgTBJUHqtkSmXeuQQrpIZsgdEmbWNKnOxgewkapqsZSAgrylPFrxbLvxdeGqCVgBoyvnntSWdULImvmjDeeBaNqNnktPNrqrjESKEPTyVXkZWmdrEoNRbhlaXThToekXFbaUNykRockHpRiWPdFCTkRqDUbmLRRrwcvlIIZbmsmZWoksiZPbIlnhxUmqAmfFQVxHCiRvvOVIXJLALtvTAWUwinGYUKNLBMkPEcIcCNRKiBCcCIhFOGJujRUyiFmyORCjXeGehoEcJnohZCBsmFMaFMgOKQsnvIiaHbhfakVEjCQECuuuIYvtowvAUpcuoXRxybjAnXDBQDcULXZOfRbDSoVgIYKkXxZStpVoMAIhsjDRPBXBudIeJmUoKEgCgnJgqlCrOdMExOmKubrExBhwkYwVVLLmBmyYuuZlVQwXiBNJUmxhEFqqoDisJYAOYXIhfvPuDRnRVyjjkdWdoyIZojhZgAXXJEERRZAUXhDLEEFmfyrwydfshnMFGCHhhDwymJHOeeuALPdMnKyMAnikeVnKVGhRiPFpjGBSfGfXaTubmyFiRjjIerxWlaRTBokNNIlLEbwcjdoptSGXrnPfElZLVaqTZwqnRqmCBxFkNZqAoOGjrbOdZZCqeFDZYEVoadPMXPLeMCNHpBATOEnxAlFkNQiswOBQifSSvbBlXWQYDRdqMKUHWxmLWVnbUwBfZNfGCZGKFNUsbiYvWnyrUeFYPopCHBUTqVMKLBgyCZJRgDhCqZLXZeGHfBYRhSpZltRXaxbebCvmShWsWCMouqvAmZpeLHJwdlvpnrSfLDZGYvHAUfaRXeyJIMbuSxcvQodZnEowXpgwVDCiWLDbRNVZbtkaWWNVAxXmTJIfLfQMMuDwLAjLFCTayDDPrbZukQOqTCBkfECNYjaIOAqQtyEMuHePFKqWvhbpnrTQPGNYGWISkLDPfNvCjKRxOYjnpnExthOkNZpLXKKLLxrHvLbVSyhbtsPTjXGByreXNyxZXhZHhQWwTHSoKGFREnnWKoPlGJdPWsQihMGEIWgbRIyZfQBKmnDunWWinxhsbnrYuHBPvqFQgsxLaknoYSvFGeDImUEYHEhQRPMfNAsLwMPeLeeVKBxLbdLXUbmucElJUroUcWhyZpfOpoxSZOXepJMmtiQfTRInMYdBHlmXUUWQEOBvLKxcnRlqkSJsrFMosnqrDelgIlNWpTyQivPsdQsddrKFVORwDGajEbwroUcyGGgfgZdBXlZVIqJDjbPqJWrhmgqbSVbtPrrEGOipseGEEQRvJHhcmXvkBLIyMjaAltZkMrYkAqSPlYsUOpPMdqSgEEZWsumEnbPDeWkDjMZbqWEqLOlxUkoCKIFkLktZwmvXsyCVgRKZXJdnLexKuohDphnNWDOaHOnkeRfvXeBWNpcyOEyoVmZJZBopDXgIlGQFygBSywfMAGcbprAKrnRjUwxSTfApNYIZykXiiIJtwhQITVMLWLOkvaPIiEllsiqeWIYKcsaaolvRDmTbSGkrEDmsuSSLWCBLkvZRnWWTAJQFDcfOXCwoRfBiBHeBQRQSQODJpgFGxuCUnwUXwYeDHUCTEPWsTxnFPykwJSfDsIXOBsAgdSXBdYevwLPGZuaxOEhQreepNttpxGrQiWkgNckeStKFlOMAUOpKDvTGtsxmCQfRBNgZpCclVDdArXoGTXBrVSUbcJCXETUBaJSpeEetDQOtANQXGSSKTsOUdmRsPiKlkJBQNuuukYrIITAlQqVggnRYFJhvYWCRlMNecIuftXNhJMMaMGAmmovTNWVgVlGhXDZDcyyfDdIKWTDtiXWUhLAYOxQYwFcryGYmOpBxPqjFpbBxRcclRrcVeHNrHKoCCYkMImDAWUSNTvqeGkEFquYFZcMrjEIAYxHOgUtmMaYFFoQLNAuCHMBevWKyffkVyIjhDZfnnKDuCUwIOwFIjWSogNAthrieAblcSFxklaODbyjlKmfALUELVEPIoepRUGSOIQxQadDEECAmIweayFUoZLVUnIylpHcLZweymZkHFiLAuWLiXMgGSPBXlwoerxTDsRPSqBKkYcSwTchktorKjCLXwn&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>updaterNameNegate</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=XoPZKDYeEkBBdxgwlAwOPFcehJqcQjZbaNiJTFSgMsyslGBGMZgKgHkiYMWQvZbqYnpvJjuJuwoxwFyQLleqJfOysyhcqEwfEwwfUUpKCPwpWfiCaCAIECSrmfLAxlyYKuLODayOMvwELFICTiTsUbcwqgDYTulRuCoIuCHiObvQEQGWQLGYSVtYYiwglQOITMEhqYHDqYlXxLxwwadropHDXluUcOKSYLatNFbMxLZdqaWIlYKlYYvsfrkOUohZtiCujrBTEgCVgYTVPmGXNLPWldFCAxmMhtbSgxNCAOwgVkNIITQxdEgFqnHmNJtAENmyxSJDOBnxKWkJGNdfbNSRTNBGWuhuPDymWSFLkcpvLrhHQOYSfuptDUtXMPwvqoPBEWTpsWQmTWgdXJEfXBOrEjsccSXvnVAqgjutsEkkqJtcYGEaPqNHQdQHwqDLmUURGdnCXhedmWVjUqNJMuhermxcWcfSOTOhtGUlNYgFJSMWxJqBWpHdrysQWGqweRokBPRGbAxcUdJXrkmtfGVibfiaTEuCJukRgkPvkQDmbQcaocVwpwrnbqCXIaylIxXPLlomQNhKOrBJlTNMtAutdFFJEgqdgPaRwjYQTreAgUMgemmvBlQScrjXTXgHnKHtLWyqcHUIokyFbXNmjWGuoBGBiAsKqhBOSpwFhUEFPXRHDhsbimJmqxoRMccGaBkGrRbIVacgfAYyUwiRyMMXCUbXaepCpcKhmwbuvTEcAxSPyGsSaLQPeEFxwNWgSRjLDQiuTPxeXJXhfyXrKAATGyXGoLGjgYnCgeSNdEuouWfdJmAZPTKOJMsDIusqkWiokEbsgPGVGgOchWGiKxxbiexlHMArTWMEaYQeClujaxsHcqkMGlfMsbDoWnjHKcmhctkGBwxhYeuSEkmBFaRmyljcjgtMYvqodbRbSBFTEUZUGfmUhuTGLDWbJoWAyIBLOQxyaoLimDpApdBPKRuhjwiOHRXhusbwhLBdnjHlWBdkeOdNallboRMObvXDbmlCpvqBJMgvJEaZnThKWOiZIYYgRdBApVUITPwbYZuSWwPDkJiAyrcXbTrrQjQdxEecfDsBsgGQihgMkjVQesPoDvAkDbLRUnoGOZkMiLobFPTSxhZmGtgaRQZjbYNgdAnCCgDcOnTdCIUnwFZQSjnCmxrgJEZlJyBblYwQQVPcRVrJblrwSCfWeuOblAKMAOEqILEIvpGyBchfgkphDZHWxwZncfiTbSHnYIOeHbApdSQcZljLqhLIgHDhaxTPHJvdjSUYxRxfehZqpaHvbWnMKpeJsrWOiidxXvRMsDPKLHQtIwKqHETBKdeTWbyWCgOxqpDhdAVOdCibxNFUIWEPlhtLAHplmJHtHhDDQLxFdbmgFnKtWeJUcWCJjScjeGnJlNSLvBFXkKlbQAJPXviRUsGkZnbVMvhFfODSHgpwDjdqOpxxFRDBliePydqdWmmGLYiQXMWsyLMHaTbxiOoZtlipKHtOgKAMgobcdLwbCKtqomtqZgOaHgBueuppqcjVBvnFufgfBYljWZmhLEJjgfpDDFwnXxDlxenETWJRRKBpMSUdtEbVGbjmtEUqDZOCUeFJwoKiBLQZqjeuBoiGCHmrrInIVlyIiaOokxjyMLlNkQpQllduuBXPLIJLHuPYQIWOrCdsNZRWrcoOKfHiDLbiUufXwqTqLmKrYffLletYFUcgJCueCdjEHjGUhRfhPBCepvUhhBEoJIdqXfkoVNYDdqiKHvhmaSqYxnSIiiUcKrTstGkOIPVNEjymKjKpbjhSgJIZiiyibUZJFLSYxSHmXRtsGrWTvwvMPnoKfnNjlvAUMelnkBMfUBhenoQZHRxMrFqTdgJGuahpOlZhQyQdXCZUIoxWvsPmxLZyemlrHokKyZCOLxQZbNVtbWfidOJQidDfaocRaIsVwUoubFsKOqfQdjgJIMfauLTeceXbEAJXOMWermXfyJycfDIYBqCOmllGTLtEaYROtbXMIExgpuqhnfBjNpBdHJManyxbXCKNbKrJcDuRkRPLDVZYHXvOjtDXUqkoqZgJbEMDDMpxAnRvBZRPYahnfoHddFkFWbwm&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>mediaType</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=wBYEuIeCmwcMDDmcHBUEweOJBjvCdUBiXlTEdCdkhBnBIsZXwRfZvwrifVibeAiHMYXuCQmHTTDFiEomlGsYybawkojOjeyJaAmlxGGMUpvdSPsFogPMZqAFIslajLWqWnNPTvVyodVtqNOdgXOWtcbNjKogQorpRvtdNvACPnrcNGTYWdDOYUQAMrlevdUZkamPjorgMPUPPaDVcwOeoNCLmFFdsUPdECZDbdFOwenyTuXlxHnopIAnZVMLqDvGavgjYbwjanGFacQmIvVuBQVelxvSKZldFgGhcfDxsZOGTIHDCIToxByYswXGoYnSDCINRdiHsGoKfUUYlqlvQWRnbHVhgDCliIpcltRufegPTTRbmOBlMCMAArukahhEUAYahSwVYSxtpcSqaiSEOSVLmqaHeirpNofwTyDOlyggPSmhDbLfMhJlvHFmyoUVPtWYQqJwBQQhQemPVPsxKOdjXnMuYIAdNMjnRlVgjRhDJPKbWRXjBsyilQHDSKXxJrfTlnwgOiCIRIcFxwtSXqYNHljItHLNhRvFTGvKPQlLMjtFhJWpAowqBIiZWBaGsLRTvLAWJfMxBoDFrudVtgIJZxFtQBqMCyQXolnSarxTHndRxKyvaoMtHJFTgOuKEwWXkUYXKxfLZIBNLQGiaHwDTpMfJTEokrpZSffVmyvAykDYSuemgJKjVDaRiUqwrDUPsrqDnGGhJFlCwbRrdfQAlvIaHrIVSYtXgoFxaRuodQPoISmgDomiuifKIfqVMYKxjlTPFYXPdfWnUjWlBvqNlngMpYAtWFVYLhWtuVTgGqVOZlUILBwXfcqXqZvvQkskIlmqdegTEesRwGSneyqBoeGNbuMYZoiUicRkWaoCLBRjBNwkhIeOLSlvsOiPYsWrLUbUpMQLmmcwZrvuqBFTXiXypAyqnZIDCNqGIugMqwUBnwVHbDfSgyIJNqEoFuiZbqwvoklgdAnJMUQxHCfSNlFlhlFrUxgPAPZUEQAntGMKAeGQuQegyqyFZSXRqfDSflaEFqmlNKZOvigEXMsySWWgASsRQYedTYWOwmaDUKRDOMOQQwmBRuZTqLhYELQwtykTBFGpiKaHlwfDsYHdjXUPJGheageXASrLELIjqOjNLTPEiFoGPePNEbmeVoSJPEAYtMLbDNUMIbGwUhyZtMsFoOCWiyJbNlOWHlCnvGRbwVTeQGeacZVKnMeSGLILvruLJUGAunySknDJhjSDtxnxYbXCDkQFbbQaxfRLyQnvwXqsNyXrhpakCrfGVfiNhWheIKJjAwwwfFHAhAoVKSpMshhnTCVZmYMHWFYooJrvIPGkhOKVYerARTIXBVlqnNFhZcrcjgPcuvfuyTgpTxFnIUpdTTrawkhtEVOusNjlYoZoNjfreKotUPpFdTnsnrNbEaJRKYYblYDCFJXlpdCZNbORHdhxQcneCsOFXLqdJiHbNAGrngNayruQOBdoJEQrfnuSfPEZmaQmshxwiguDcvcfKtfVosdKTWPKhyPclwXWxECXAsrkRivrYOKHjljEuVAcuImlAPJrBUPxglqVjgmlPwrIOOMiwUuJJrwMkjBIEJHrcxiYTTlZETKsDsfqJuNxDuRoFRPZWLTymQNbZEtEbWMHsAZopvfdchJLQNPOTYebtDCXCEiDiTUQujwJKyMLZcDaxakuWJhBgJlbBCdCjNdclQOjCgxaXLjLcaPbmkMkWrbXLMBVIfvaqxTNqTncpoLUDehrlLEftnuLwreXgYeFDfVpWLiPebgvJKeLLZKAApbVkwGGTYndQLgUrKljDwiqsQWmKqDXLhTELODXGNkLDynEspxEJYOLbIXYQUHAOubqQJpSfKAPXYKqmmppjpJaMmrhQLHZvWAkWlDRURwUXJswfwbLovIZsYPJqcjlCRxiofiWUScqmaWJqVKkAOBeJvuWcAkBUSZwRDNTFSPWQfPxuFEDIrgXOVxyugqFEcYcftwXaESIGclOASWkbZiembolZGdhitKiLkDZaeaPwTPpYSZbscececxKbxVRstLitsBYXAXbyKLhAjyjCvtctxcurwiXpDidZiqmDhcHDKtdPmWUXqmORDuv&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>updatedAfter</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=QrAHPslhMUmlUJPSknycDisWbHdFgbyVIZbJevVKYYKOtYDRDPOEIyARPFKofEsZnHjGQCkffjysuIqwIomTTTVPounvwgOMnOWGLiFdUneMgKqXXcBMRiETktDGhDbCWlFgvfOCjRjkjeuiPmdKJpFwhUnybdaKgSouFSZobWTqwZKivyPOdphBEfKeZVpvZQAGbQYbcjvDhQlPGgfbZCEkJEjttcjMbdgUwxCuiRJtrZbvIMJpTAHxfLubHmSNUvtEelkbMyDlSNsDIQKJoPZxYhvlKCdslQJMFXDhtfrmDALRCBwMTtrBkChoCiUNNhLWsfgIQqjDJuwjdkwqxalFARleUgmRAdigJNdDkBxeyxfpgwSUpYoKybrwNHqoqGXtVIyHIUxnudjOuQvEAZCGHikQdxwtTimWdVkXMtnjLCEKRWqqxtlZnAgjBrbXblgPxVmFWSOhxNWqZExcWQmJAtFOeGdabXITVtMucgnqgMeyerDqZmSMDDvylURAQwSfEKGyKxUFBENKZlxxehxktNKivqoGuhKKXRvBRMjdYAtoGjnITCcZquHOrdYwgBXZGltxdbKRpFnlODafwJFtbPWOsWoGxDyivnYDFtLalXwMiHjtHmtmOCXTGLafHCHGRZWCwwMnjlQgaRpZuowZUFFmRsHVjWhdhYQyImxMdpbKFUQOFaPXvXkuoaYXNDsByvveIbTHqPgxLwcYIPCJoLoCdKlVTMOuOumJtOYEaytENSDAIxPUnjeiLlYxEoYuKaTuwaIuAiGOLaiEFtQVdPJrwdQrTfaBFwSrIwJgcWUQLisuSurMksKBmisfQTnVZrEjIlkpuGQhkHiGiysGeBbeVJJIGogTUgVaDrkJrRiUZIwEGQeYyyPDgORGESeHZbyDjOIpKPDZUIliVnGwYcyJDQHZpnuPAmriaRBPMhurSSZVMkdPiCJbWuUZTcjcDiMimqJiFqjctkfvRINYDAcUaeLwmBnIqjrZEwgDIxTtHJrsemGrikwLcJHJSKtCxAifBoSPfFfxBhWMPBHGMyeADlsrjqvWeHgciorAoWWPWBnhHZrqmZPopFVgBmGLRvksFHjLbWXlcTAtwYvCxIyakFYgoZhbrBrLimZRRNkdtljyVdADFHNEBHgghIDLXeAULThrBkfVNitGyoSPmocUunpwusoZUSGbyOBRDLSGYTbiHFnVsQlToKvFNQxZsRmAWCvoDAFFLPmMYsAxhPUNCeaaZvmernaLDeTxPfZuiHQywCQYarVlDNpDKHruPxFsVVlZKLlIekpZexXeEDBXhYyZrCLoqcuwKmfjFYkFVBONJjYvdnvuJYrIYXoVsLYdcPlGSMvbtvfhgxpkLYIHiLEOESMBPjRrXTFGsbGMonhMsOpAvZsEWyHbphPdkfSbyCjhJTQhOWIhqOMnqbSKhJKHAfWwLMWBKFIQcFmIELlFiLiAKekhdaxEITZAfWlTYvNLWhuqYHTlQPoBPgaknWokiPpBJbCDWSgBeNDkkCGAQDGscRNVTdpWvgcxiivqdXavANsIWnsBHOMixBWKktgUZXfOTZpTYierhHmrtjdhOTGoeCYxYbafjNvOoPnbxusZxRwDOqLqffGQlkRuehgVjJcVSnDPwIEoeZFQBYWWAvFqpbBIwbNSrEgWBHPHqvFCUftGqIdIhTesjtJsfAYotUCUvIQHqBUdeNCtcOmPjbJptSOILvesjAoBvZQmdQcZKFQqToPmLVLjXcHpKATnUbFvDlMqTlkhKsWFRPqToGnLLwfFqxTxyiqdxXgTsYmvRhjosnxOtxCWFmxPhdkJLugyKFdxVVKQSjSpBiruuIpLMWDlvnSErWcJiEsyQRotJXlHgEXfZybEMPOVSDoQBnHBcOrIdlFQbqsttCBSybKOpABaFfSrcZjKiWbyHEXRTBpjdAOQCtVJTlwQHbmqvKoJmwGmcqHIClrmDjKfkqNgdUZCJZKWgXNlOukeBkDYxySNpnBFvtaLtdohLNXjMJxQqoBnnwKKZgQHuBTkNBWxHloFTLuamctEHPcPlvuciiThTgfrghUZenMJhlpJlhZPHrwfFllywCjrgRur&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>author</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=IhZhebNAMxvkpLajqJVnMtxbeEWrDfLKQpSYqoJYDrlxsAibcGtFFZgjmMVLCoREdnioPGSAKRovcyiZTEGPhXPmFHLCXGHbUmNGcQeonVEuGNneCvLTXsOqQQYljtDaHNornETbnXQBWmybGtnDEAJsvbjeWJUMrBgOTAZvGYORcSRhpiBLmmSOZsVuAbQIvTxcLbPntNDVvsCyvhFAOtjfxQEapKJmmMILTQAymyZISedONpNTXObQYOVPXuHFpCSWbsRTtkKcVkwtUnFaiBLLFauabUuNWSisSFYNcBqJrejYgRJYgQhmeeletxDMaEXsRiSCGxZeZlMTVIFdTPcINXMGZMpZsdBqYwwhDraQNBZtkIFstNVlBstqgAwawahamiaPVpQyRfMiJVpWFPPYoJXDfVIFwTtSURtviwLjIfrMwJfCaZBbowLWCNNxWkTewFqDTdDSoVfrZAuraunNCBQSQNNncCscKZmFiDWPrvpNZhCFXffUoQdCSFXkWebFfcKRHpjyDsiMSIOgHaMCTdgAoFSnrfCkndVVddHxGkgrLnZWZXYPhtbfuiNnCxoEkxyjTeCxnGgejNxoiadTUhlLmIoPZsCBnWISvmxcdObKeRAUYfPDeSSPPqmgOdYFdPmhNSPmwbSOXaiZqiRYaJoyqmBNZsHvWwkJtaOXYaRyJLDjTQbXTDTlIAdPsBJnaXdfoscfjdSkHsEkKKRRUZiIbRmsdnuvTPBxswOrpwJQuSOlZiXhEhgSAyCtoPsYTJThEZQpSGWDwGZIoNHkEFsfCecOcZdnPNcgVdjlvYGIHYCxkAJuuRdyTEvBBSRRDOBNjqAgKEyCIBfdTsjsvOLfYhoRwYDwbkumAPfYUUvscJkQIxHQrsDJufodSMiofKrLecupnSxSWoaSlXrPKOpwOCrRdaKvhVOEGsZjtRVEECfxksTKUxcBWComSbflBnumoJkLsKAReUOhsDiLosZJasXVbVjBwgZOwqhGijibUBcZlnCkvhwsdXNBnUBSoaKdQyhAfkEdpiRgUNqeJqGjZLKZKZnpgAuKsBYrARqBNTjSLqOGQasbhQjrwjWWUvFogFkmdVWZlnMwgBrsuisHDLJOhZVVbxMdMZcnHukSHtUvIuFLZkCLvkRwokrSVXKNogtYnunWZAOrtZGdkANMftbPlfOqjFbgWUyeKvGBlhlIDPPqolnJVvHIkqJUalxmAWvACyfDFftodaobgUSHfKaOpbrfLctvreAHFGnjndrwuBoHPlmsxmCVgiqLrhqEZkvtPZdhDbijFZrqKmGRsOUjWKqXVdUeBHJHeItnbxQVRLtZMUoBwLLBEQnVvkKAXhXttRnfCKMyViHFhpRAjBDikTlvoJnFqmLtTBVJSRYTEqHlBmYjiosARpMCkIDbBPkNDtOHVcnrkqujafujxiZavOiTCgxNLbVKlUjDeWvKAlolWduEsPyIslqJCFJThOYHTZJPZOsYDfRrnIInsCwGNcmiUZpmEtTQUnFWvuLKscefVOUfUbGiCKYgnXjxUjankfmdvPvdbcLwBxCVVQysbGCEsKhoBftYTOYTdJEwqLNZbgItkgBECZrAZFYVTasSGfgTMgaPGvEFpbhrRLRLZVQfYjCgYLGAHJnITTbYqYHJCCVNuXfEfalrLxKrtZIvGMlEvqogqkUURILHpVjfDDsZfhbfUUnrEJaClHNcUqFHVmNYtTEVtcMVdRgvvFGcbviHNDMxbDWBCTPYHyFjfyFZUOAvkHjPDrOspYkwZTZkaZYEoEhMWogJFYsCvevYUVsHFBvxUlIFosmWmBfHHbaegVwWAebVLKItIUyeXqkIbKVAXVWsgRvFJcCSfWhqOBvptBDxBbAOaqswVIGQRkCSwxLeEIYaCNBEKapkxMbhDEwFHkdYFjqAaDfTXewFhFrTMXtTiUdMDuubBpWfrffcywOqpVelwEbJIaLkfEqUhbtiVlarrMQxNocAJuMnthGeOGSYdvWYKncdgAXHdnblVZTCCphVVRaBGkjjTfofKRKFvuOxcxsTYBbFIlEvPNjcqVoJuAysRfVqWCABXFHacMUNkOqRNfVtYBsB&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>resourcePath</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=VWWiZSvBwPFZCuXGRlnmiRLWIqCjOjVOjXuPcqOVPATiFfBbVHPVuZahEqIPyDHxpakwFNMSVFGSiDxlslJfJmOyXUeQPCqAbBZrPdUvyQayeldsmSijbbHIFdAvOcbesisMCMfJuVvvyWCfKwPcwTmwWWJbIswLytXKHuWemVEGsqUwZMIqkZfeeinUWdlINnxBtWrWCMMMYfLGsYvgowJSwFoIgSOjfBYXabJjhSjfHjkpsUFSTLTuxxIJBTQEeqmLGjITdNNuqdgCElhTwGWiQMsTOiSeVSRStkrdePnRUgmXNPhyUcOxirqfDAaOvJfrkpvXCuWWUqClqoenBvoNvKuQtAuUnLnqFWvrUjdhrCRQIMGYChxElVVslkYniCZcsYfYtSxqOovsDmKKbZhmtRwrGQUywmIERVxXcAjTBPyphllFDTcTxytpkEXKPuepIZhMlVrTkXvykQZOqDTLAsiUpsAOPCEVQEfJGXRnhBLKmFviefXrocmUyoNKqVFswCgvXwdFGXokqqELrpWJgXtjnMaHlrDewnnAAoTkKZGEKYrKAdJWYJalPNnxclHOujfSRdhdipDNAxoqbLGsYTUcOCAlRFtrlqdJYfYMQrjhncoPZQnLEsZjnqdOaNtyniCpcDqEFQflFZApDxLlRluKHEQrtLWMGSSSsVbHcZwUuuotMCeypeJmEwRJkTxMHtaDUsgWrxKoLqwbThPWBmaUUCdVwDoEYvlreMERBDSLphMrNoyVAnUKZetfCvhxpyVOxDhbfuIhaxORIOuAlxOpCoqECRnhPMIDrRmjDjXeajmGGkyeiCETwjELThFrNnOaNPoPMJiWuCSXKwvkXWKFreZOvgQlPPTwtgdCPSMrBgHAVvTJaGFWiSCfCiyRbMthTUGspbrBhwXnjkDUfJKHUuxOPjYYmNLBkAnQMMLBKJLcBJhpZiSPTZSBjAMPROFOoZhdWkJEPfwrslHkaeWLtinMJPjIqDIeaGgHAZTlPZCtSIaLJlfZSxhGiKnFRKrSeEVKrfXFAuFpHYFEpNlprkRoEvoMwbNYJHvFqaYiRpcEHsVQxkQmqArmhVoCKMWHOYuJlIUpNrtNlEqnAiRfNVIDDuOcrBBoZKBilZMiJinqdhhpuKnXtudpvfaYCetrkKjPyDHspgkaJdqEaAlCtwfocukSnLukKDsJhuWGPTJvNsoSbRJvDYTDoSRDaEMlyZmHsYTSaAUmVVrOTiBgGXGUQLkyXnOeCRsBgJcvTSdAgwZeJXYHqFnZLwcRLnoBaaJgpYcYEfLQhqImstwrqqRjESwrQVFUnSYxlUKysDdbEnymPhdUCXaxFySogUkebfjABhdFgQPwTnGImOAtNdsTEcaumkhOpnrjmZMddhVbwshYEZUjGntxRYyiCslUerlmJfIZwKlaCkvCmwiDSFUEcaXWPyCGQGuGKkTSAyYfCVIFiEwhxhNFZXXdMkBSiLXWicvYNgHhIddWqXbBLaliEirQYeTFDdalmAmYMxrnwvOyvrcejxiakNJXGkbqBnrxZIcXdgJlRkGQZUSWOUCSWgAiiaVBqNgSKCKfvSEtFjLGdvVpkhHlvkOWXigZBuhMUtCCaiZAeMZlytWThceLxBVVwUpjPiefpILMZcSFnSerwrInHvBhqBFMtnOfYdgRQYeymSkNHJUEapCvebsotDUcOQgReIkCGxNHMWLcxMEFjAZIddInGfpdYbPYiiZoYfmsMwZiIFqUGCQlPWMjCKOomDyvGkxSqASbcuScYtrKBmuUFJkfslIsLLOLRbGBNwyrNurSvqrsMfIueAwKgYuikcidcysdWxRsXcqhtdyrNaFnGAGqoxBPKOrXiBedmxaVVKxTLTbImouiWNgAVGGWewoGmqjpOlglMmZdOHdqHmbVsLUWrxrcjFwUpPecxpwXTmWFhFNVrjDHEqpKvulWZLRNuiPbqgSsUsnODtgZvIhbjaBIiQcaItuqISPCoyYmleQGMbhYtQxvgBRfUgYyBSvfxVYTbKLbSCuUUiVuNrcEBucpPFbskTqYPbdDrREfhYLmFaLxGGALqnbjIdnbGpJocrLJGosXMAwg&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>updatedRangeNegate</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=eDLrZlRxxOFApMpXbDFjDdNfuoCMEwSOPntKhUTlNmNYvdkpTTqjLZigHHYQcUpXhYueYWaixgBJexFFUdwkBcyMPECfpXlCaSYfuMmevcLegaiLWVhkDDVISNjeUxpxVZxpWWkBdFDDvrXrVJecaakhKpKBXZSMemnxQQFOCiHItUkiQPBPEsPSPZYrKQOToGXNrZGrYNPhMfqcpEOSXQqwiUWMTbHTTuoWeRFHSmZEGtLAWgtNBWeXqhtqBmokrGOepEkTDgqSdUfGwKeXADIUMTcuHTymastdqKMcsvdlhkodyELiHfCVMVJuWBLFcgGZYWxUSofHLGiDGJWuhZXchGwbZHhTacbWiEeaUSiOWwjHAVvRQBRWaXwmsBnKUDuPhfJHUjNcEIwaRyglwBSeTyvebPOhXrtWgsYMytberDfDkEgpwooNmXqdSpSMYNTCKkGvtrYuDSYGUopcJwsHPfCYWQHasRXgnfTLkKyEpodhErNaxNOijiaHeoiIaXpWvfCKAtDdcGGAASnUDYAyyIsvaJiUsibeksQPjlfRscOnkoDOpWcuxIoZNeYcYWCNomEgUVSnlQOHmgKttNuKbgmxDJDbLneeKxhaddfhGIRsmAZxQoCuruxnYpsEaCsFtgOgNyDWhRAcRJGSNmTmWDbatNLxWkuJhdfnupZohwOZursuNwcBBbPDUHVWXUmdsyCccRCPDRggfdZZATxOQMWBmGfYhuVAJBryJhdaijOKtkumgZwedyldWTmHEXiVhcEOJyvpHbwjsryWrBOeOBVIZjKyTlTRFFfVSrarsliMlaATQGfduDicwYTCuIAIHNEqWeYPKDtUjtGareEOyOIGPKkpHGeMettwVsnZkWKMnODYsUoaaHPsYnDvaCutWrduTVCMufPlCKAmlljyNRyVhYdslXPKaTBeNKWOvOmeZoFggBiKTnjjoGUCmjGQIMZvhAxLkKovwksDZGfWOvdmXpJvKafOndooWAmKdeBYIOBgGqJIiQetsmAEqFVbvwhGoHfjlTuCwGvkCpLnkNxwllxQxqqOoyjYYsFBsWOCdsoEQMXTbguCamZPlLrtOBXYHxFfEdPBRWweXudOYYgrphUyPrXfWYBfAHYFEeuRgMaGTsXndxhrpPPCHGBaVYBrjFxZyjSPtodCCxNawWfcaGomHHBsfXYpUhgPYHxRTssPcKgUOYjOUtlrlDZaJbATkTHGRWTuQGJVFTQjMwFyMgLDqWLrOhOSsYdGUGwUpkWqAlbbeLrsexXlfvJxnQEYiVSiyfJOdeHiaJTsxqcjUhLyxyjZMnvqPTpsgfulDcDHRFAegeHrJyUJwQUqyYSlsrCvUeCwTwmPdmmPBbYLGpEbDbPXAXBWmSTfbEyJCdtvgpHUVwWmowETpXZkJJHRuiSEYjThZglEAebNTaKqdppFjKSgvkrfKlsGDvEtIZXYjRPsEWoOUJrDMLeMPDKJgwyUAkEBxJvPkYYAXLdZlgAPGFXPSRQonqisyXgiRnOZAnPsnEgTtZOsXtMkIrjOomZhoGCIHHKDAjJRKcDBELsJvRDaLHAetLFHCKyiByGJYoaPDKmKuxAKClAsjIxPqBgWedjgHiIOSrMUQWUkKuSpfeOorDxBUilEgqWBwvHRElNRMPXOrDgkhNCpcLebgJWJmoRWehSMFpDAwvmkNmdetnTOXQQQpgpMtuEfNuebWahuHCJxMeVCZKNojapSTrtfjWPZOMqfPdGLZxNUFLXmIqOThGwALcCiDrohReiTpBTxpcAHSoCIYxVedrYrdEOmvNtQdrJqtLqDvCFyJsODNEDndTsvfcpsngVRvpVdBeNmFwJuJbbnEYgGfSpvXBItWVvtdLdLETLoHrXWuMFSPrYVKxURmTjyNcdklYGfJdInLMPdRmKAZmWGTrAkXrCbDiZxSxkoNyApgbaLHvkrXeUPXsoEcrLaLCvFAoIeuKbOUnbXUODEAKloDNjXNNJlaxwxScXxtbZnmoXMWbcggwBQkhVbfZDMDLfUlPMDgwvxtlPJITuHLKxcGBiXNCsirphNAkYXWOuaMJShEtyhSEAuURdxYVINZsCbqIvx&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>authorNameNegate</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=dSUUmnkDHlsJamMhLlCvFgagcRrYWNNORMRdPBEaGLgiZZjtjEUIWlImvoLcIcgXBZUnYAWwwPVLVDeivMxhxvSsBfCFBGmBYLaWOFIveGBEOERGepvQhVBjOWHFrROiQiRQDbBhehfrfiijPYxGYftRhRyDAKYiZtnWRjoLpwQXrwongGdjMlqmdyqykLskfSUIlcxPYugqVWdKmvdmEdJJvRWjAHBdeSgNUueftAGSDStayRHZMEoovmQlglHDVLJRnsgQEpbyNSYWrOHPjMlJMDWilUQmoJdToZcAicOVyFWsfuiLVOTTArhdxjapGWYqZSUPRIngIovEhhEOORraSOLHYxebawXqGiocAoXcHOMPBxegeMXwroIdaQEDjskTZMjTsNScQZbHxtYsRelyYINvSOKPlrwIFLtddUxfMYIYMPOCTvEPRsqEBuCVXuWdMPvUMWrmbOIyfcmwCOpYsVXBrdrPQjZtuDUGwMHenULtcDEeSBdgxcIfuAwfHGhcBvFHOwYZmqEXPGWeutyHErChRlNAnLoPIuTvDwCvfoiMjdIcuKqcMYjWANYqJcyHfqewMgNawcocjBirlfxElfuyOXMeJBCBNYVARgfdRDpRuHIOQIenbyxwMHWZEvoDgCNvjdkAZPgNiXLELoClKXugGqxAbPLGHMCAfqoXBNAQGwjWaRJwXBohbsgdCkWXbsZsQofhWVUBvBArnOVbOjHtScJwLMmCwjlmAaykGItPGVWJHZRRqpvPJQgsXLlhvcgRRIhycgnXjJZUbofMyApwnyBExLQGHMQZchlskmGYuDsXWUyJvokrLlCBMKOJOWRHDtcvMlsBroImclkwufipxCascNKujvTAcTlFcOeBooTEgaSFDfwWQriIQwuGSRDPBugeWlmjhiwYdoMdoiGTWvvgHlWhuNhmKXEGxYrLVPdaleWRfUdSlQQxJglUVOPhqGCpdDSsEVTnQKpaQepUOiELHccJQOUhXAJfMtwcblVXRgpgduegXVIdlVRaiSNnonXNHTYbhwMZAqGtmSQKmcHhtmjqypWdvtkKBuDTFdkBTdFpOltfjrOqJbGQDlihCKEypFUPrQDgZTHHsKnVdWNNhLwuDFSHUrFZfiFmWmJPBuVIVwkUvfocXMotLRryheapEbakVxCEYcCSifoAvMUTOHoqXHghsMxSVZlLXeGGkTuJLsshteExfrLBNKndvHKZvPIOqMqlEjWemLlCCCBxWfOZephXlpPiecRfXpVaRHPeSvcuNjiPvUWejnQdkRfUTlQWGeDiUOGDDojdRHfKeRdQUEYFsuvVxHXPvUuCRpyhmUiPiXgsGfqXaYKbtAvOPJdQIvtUKfBjsGZsxTbHowDGTNBtfmIIsJlPYyGpnOYKtRqgQLnjyHmLvdNuuaNgRqGfTeudBJKOXnYsGMHQKQPVlCtaOxVSblCSNRbbvKFATTXLnoQwiFMtwloiuKfUhamGByioUYKIgIgiibxEotfkjURvQfuVUpypgcMQlffjyQkbcHhdXYhaBBVOjrKQeHVgZfyBhNBuabSrctKTXTvnNjTDvDKEaCZcnIQAgGvSxaFNlwhjKnhcUmoDcKNNkKeHsmRBUdRloePSbAgpStOdVrpiRNUCFledPbbshjFyfpAIvUHAitnasMhqrPjHomamMRkxVmjJjyBQaJLmOBaaGBbXIJiNSCJGLQTdCREtWUemTdvjIiLKJXaknSBVIKEOiXAQBYumtgUBwcmwIIjodUILqdidjrSPslnIKbBPoQHVYTRuIyvcavCrmSFKKOlbQolqLZgqTNkENgEKWCSxSOqdQTbkMUwxSfxZpZHBdbhFxLASvjRSoqVgCcngjryhFJdiKUHGxFacTGQrpvidijnOReEmNHxJDxQtySfkjpeysVfYTDCxpQnfrtikTLNekkOCfFqfSfgMfquETqLiIecNgAsZxJPZoThVhEeCSpOGveBmlnuNunoalweZVRDkXdbaUbWYbFfZeFiNWjSBFQpjtNlQMrgNAFYcIoNhyfoRpPRuDtWrTEgmpJcDOAZULPpHiNQnQpAbMLonXmMKwlcgVPSoRZoFrVUa&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>rightOp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=spnGPInXiWBeconafOaVFBTCrKNWTlEKihmialrJqZQAYZyYWaThdKcOXffrGjaKKubsEZiKObiRcIUUerisTNxAPfGelYEMjVkDjyShknxQcquBFbwjFqVxWeEKIXfBgGhdUQEpsVGerEjKHKKvkvFpQNqaeFFBebvUmTpZWLktbqioAlyJkJoMhHhSnpvBYKgBjAapFHFFrvgucyYXwnIrynxATkQGdyZTWkSgBwyQKNMiYBMyMAnkVNbNixFPTAPEyQFAKMLbWnsYrdlniHRWyXWWbvpAZHaIeFmNaQewkZEokSZOZKWELJBoucymxdCWhWFSAiZuOHxawQPmCVZiaubOXDjupsIVlaxFubbSdwkNeAAQSSXbAijNgbAEgcNsEGtLXgIGMuYCANdGfGvpsYyTkdJiBRNIIVwyuvRDWmFBkeopDDlTZMVVWtYtakLFRFribbjCPpCXgZyKRMNHWfHpXPkmbpdimAkdWqTGWpnHFsinqoGMcdKGkGDEUhqOtmFvLYxrryUMCiELFdevectvutJduqLdMlxoifgMHqaZJofxmtXfDnkpeuWXPgqVgEseFCNFgwMCLZXRUHuKCgsDsfMvsHbiytiNxsWJXETsRBtPThBiJdPDQpvZTxdekQehjApQMehZWKtqOJKbHWBhMZWrpIDhRXESNJhdlqycMKsGdEXIpQXsPfUyQVqLPeXAIohHxGlgGieCNBFRmnXITDPgfwLRPgbStAQJYPRCYHBDWKskucZlVMrEmRfLsclJZBKknpmOPDuKTejhVVHWIiAOEwkpaiKmpTtEeHIMqQNTkFFAJLayfYYjGuBrGHEvpdOsPEANWjTNtJLpouRFLhXvLyJwyiJuGJtleCqJUdmgjYsFwbhGlaaMNJHiJOBKHsNnZLueAiEWEQbUskHXfIQmcOTTiOsLDHIHjJbdHCkNeiVtfGDqiEWGKoLLAeaJJHGnIYbnCDIsmjTmrBAorXtSeLbYwlvZgXEPJFajOaOFeOHODKfjoBFQyWSCofCNfsFbEylBpgsNrqAwyNJgllVdhBZkhqWRBQGnoEuanEwTedsmpOHuiUyLHGKyOEUUElwKvuYWjIPEEjVejhHYCQmBQKNFeIgHoXnvWnSMrfvJauWEeQETFNDFycUgclXcfhDJmbNqruCdWkFJsdPhQkpeJvmFysYHGJjEyhoOUThAwOgwoXxCCwXGZorcnqvvtnQIHihWKVbqIYadQJofGUPmLKsCcXnYPpiSfrMYFQpvWCVBqKxSGYaYDHRfwsDDJgqBvahtHfyhCImrLOLLXAZOUFuhWOjjBWCpoDPUgSamhCPSpBZiNxpmGbAWfYTqdPlHmDjhkpqFOxtfIgHseGyxMpNSwaRrqfinqbqVhmSXJoHIVBlaupILNwTblmjlTYvScIxjvqVUUKugsmHJkXFdqkxKQNLJaqthvoyFmGyGTdFKgsJQNAsPiAGmQLDQocTprxoaXBSiLwNfxuXbHPAGfAsZBQCwMvvHMShXfsKLLpgxIHfLpJHdjMEjjKGPSGgXQkMkCwbTpGISmHVTkERTpBAYcDgHwjxbJmHyAlZPtGoDbwhkIlVyXRfDABXyXFGPBToUnjJThirlBkJDmJqCjnLaEIpZdSwqoFVpMEkhkaieZBCOLiRbDuGYYdhaoyaVXhefswGeBtAIXkZSGcPsNgjRAIdNhSruZWvCuOTKLKZRRFrAaBRvLDSDbdrLtPVjMXQaRpsxDtCHRAJGBPPLaFUdgyyaeUaPqbyGRupxumLqjRwPMahxBxFfEhcXJpJfRylRKfPuZEgkxDQOTfiQklgHabUuKRbMLcqbBKXEGMWvhxThlyLQaXrYhUadnmPkLdPuGRCIcaNFsaDctPZmrbsEunRrEwMfKGBckDGwebtxNacUICWwocQXkSSESIvgdaJCWhfNOcgvCqIBYeuYSQTFnQlwqKLlFhrDBclJVmmEMXcvRQPjIvTRuTrDxBGXPpxWdYMkfhTJDRrZZHahsLkDfdnSkMGTNCOLjmcDnPhHfjrbxNZDIJcoenfmgnbhnytPPTyLYLLqBKcBURfjVpNMEHYiPOweMRUprwAN&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>associationDest</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=VFMUFnhuZoikteXSUSrlPMveTgLyULMADQBFZjcRDUHwPMHmRTAoUoxWAJjBVAAuGMmcFWMhyJpqgeBWxhJcMPfZQCBEgkSpliDsQSSxqlPkGoRYYkZWJptTWErIqDKiDjEcenkENToAtsJWlRLsghUCFlPrtpfMyBOIShTQydpxapdQErEAyFdFpngYMydCVrEdEdObriPoYKUhcUWUINrAmLVHjoEoNlWLZLXUTUhwEvcfqELrWLXlvxOIqBPsmxguCuOQaYtcMhSWfItHeojIWHbRXJKiVTPaaOetOdhXJFlNYbpoDnycIHnKxCkuDPhQtdSvUsJoXGlRohvkjBTKyLVoIhGHnATBbFClbZeCKIioghlXhIMRFvrKjvmmJGVUhWSEgqeIZJmsrPvlrvWFcEDEXdEbaKMxMSWbPpnUJaUaaEBOtkdTmRVPNRrKjAjKquJEoZcyvYspKIcCkADscbRcQUIkhXgsXsPAZDCrKboFyYsFhHphGyDTeRLamMhXKJQJTYmxkRqgZwxKCUdsrCccoJVWgHlJgdtrPrwCnImCCPFQEFYBWPPSKlgwDCaPUuGHbIleenlrPEnsFcJmKTsXJIoDaGFkORMXxSWWkTjWNGychNgfoincCBChumYXrOjMBqhVKVlbEQKoSVUjTaLBrGwehsBtROqFlxEiVuMBtKokOHEvFWVQnxZJhhLcxMywcCPrjleLZsyNhXOKNyPBrCHFMQnXVpkySZoEojiCshOxhgRjuTikVXGLMpfZOPpIoXWwtYAypNRLoHJIiglYlfUCOyBAcZUPvhPVVEKabnAOpPcgQYKFWcEmyMcnGBETVOfwKQNhKtSSZfUdIgKDgvPZNGiIQKmuvKhtumRcCCkShLDDWhJddkQyrjgKOXlgdbuWJcsLSJqErTAlUluEOvDMvCGBDqLHRLZxaOVdopsXDFmZhiuQZwVIVhiQrjrOjZKiHggatKmPSdjSpEayyXuecMEvTcrSeExnMEkhvUxeIuEVbqqQtUkqaWOpVhPgUmKhIwYrfFQXOCMQZFdvFPsBDPQUKtnJmdbqCeDYEWYqLEiyOXqRwWOVLjsuEEdZUpuqJoRDnWxymecspjZUQvtERAHXiLoMLYKRRlbAiTYFmptBgBmudxAeIanfcZHYkJARGDLSWSrsAqpOoXqZkihZfPGdvfqAgmfIYBYhBscaFyIKWAATDmJXnKpSjOiCYVRUHtTUdSsJqPvRSJMstfTAdSPQKKedXHwvgYtJtwqitBVWobQtPqVNkVhSuBTeoOcvtiQPXXkOrlZdcQdVsfmuUUZmJlusgVZanuvyZnKCMBAGSDbpydQthbNyWpVepmDyaKXSAsLbxeGgSfbLAWLQchDKmXUPPiHDSdHdDPDZQAYdrCWFTyxffCVTXAvxdDFiNJmQTCndJypntAhFpHvfxriWDgrxnweGdjpygmtgUtYMTPZOjGHFLZcvBDHiQTlRCjZNYdktnXvvmccajgybbFrCLeeckOWeCqXjDJHOUkIyHQtdKITBLGLeIyDkjRZEGnNpyyCKCLvytOTPdljmYZbetbUNBvZRmUXVIkDgKEbXCZTbDBmeEjrKlyOtGKylIYeldJYtPlUhqBDSLnPAPArvipMDplgParsQYvKfFXCiCyNwfLjJhinIuDRIDTXXZMYcTwhFPKFrIBfPNdbWVJDZDOYoSClEAYjgvqundMPIaBiafMliCjIKNrEKmXTAeKTebNupMsFmEyIgKBUEJxxjCqAtIvkrMGgttacCrBmfToypRAtocDTeEePCvgtUSUPpWCnanoMfXssyYejPbwoTFSJmWwlQEasMBTAhRHwFCDTBsBoDkVmtEOUVbWEojBWhwdFqZTlqICMDClHSVIKbNESwExBeUpuvaBqaPPuUGNsXmHRfDHJpTLSlUpcbYkWeJLxhLZLTCuFstrWeCanUaUTDKvTemPVDYYRngQsYyVgJwVONjbgrLtGVdFrWcopNYWLNQxttyeNwWppTopRsHlSUYCfeMWkanfNVyexhmFuGpfMPmtuWtCJTBrXJFMTfCuSFwZdfSNeFrsjNZBHBMxgAZhQGMNkvuKtY&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>resourceName</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=kJNWYuHxhGHkOQMSLUJKiIcZYFvENgKVbkjhoCmlxAdYwixxXiWTnViSKLGwMBkwfDMpACVoqEBJTmWOGBtGxnNcrMnUlFkAttHKmhUGVnnRSjjsnejpOlAWywAuPsKVnPQCJVcqWuKcJkAsiYjAsisBiJHEqJOflKBSQRMVQjWFfhZZNYWBaFAdXTQjPltjVfNCQQmdMePdpGhcMmBCNmusgQLRtswqNscoXEtIZtedqCyUUXYUlspAhDujKUuQtEejFxspMsRCeMhydolsZisvMkhWYWwqcLxKlOyNjSqHgEaEyFIvhrrGnQpAayNZIMPxbpjjdlVmBWMDViLUyJubjoogFGiYQwyiCEPQqWohPTKWQJpANxFYYHSNrGAbYOkMpDpopolakrhjLCmPlDTPOGgrGAelqynmTpKHNZvqFSRSDXCrDKWTrsTnAsfGmkNVHqHPGYNMiMlFrwlQGSxqaGRHtDcNDKaXKsoAxkMKwlOxuCraFZEiUDRnJZioTtfhfQPxRbLBROrWUCmBZWCKUlQpayHEZmVoXXqZUZGhmtOsgOYbiOwuLkBYIrCiPvEtYJKCLOslmVXQaZVqjeJZLxQQMiROWJHfPfieYMjIOvsTlEwNvtuskxqEISPAvamxIHwbOVxVNjPLMvDvnBLWOZsfWqNceIXHvCecBvTLnEhYFZITUkuapsfNHQfNxSQPXeYIKVtGWmbqbSBYmmlGQENYQpsNnjiybthlwAxsXhmpNfKmvoxYjCcZcUJRKqoweHOhDKcKVNHhOkQIiPfFwOdTomGyKMhUADFZOecRaCaQadvaQBiyHQZtaDpfxqcJMSKnXpnaHUTmXDmrTVgXAXWmIhvDYiQgUWAbrQTloDbtTAMvyyGFiYfjIQOoZnDlXalFvZnQedKXlXgjylTxuTrSgsIVMuRsuVXBmYLmFitggrLpGJpcgIkIedyqDZaSghmxJniEKeTSsSjIPHIeTiFIGMAPbbyHELuONQKWPoGfYQJVKaoeBMnyVOsPJspHkamZEHPQEYwrsIyYjYJKYJHNbZtLQwMelAvQhvCJhgTGloXjcWTsYUHsLqskPZgQIkDyiOYwUMBoFwyAlPjtLflPsVHhVvMUOVyINquYCTSoDrnXFerXiYPsQgKaRfcgTUZfsXhLekmPlQcLZEeclYRYgtmvtbQWdOPMZrLuVIUFMThhPSRVWsThbWFalNbNCbtbfGZHoDpaJchIYfvnCysZHHWLMQmhJUuiXSTgSRVjyqwxQucyYduUZbfNOwglKfyjweepdptIQSmJcayloauJyjpgJIjyUvkJmttQayPKnEjOlCoamrKFXFHwXctPOgVxmPjjDDCVfZyrqClBbwfvddurimWKyBrsleqfJGPxNETYxVVwSUdLAGiIoFQREtgWhSkruOwjBbvJjMcYulOVNeRqSvcbPIwqTdvGDCZFqdUTrvYNEJVCQRFJWHPnwJmdFOeZWSflVbRqZkUXfLVhmmyaBCcLdnRIuFEiKutixitwsbveWaUJcQppZmaObOBsOKsRYhUafgSuApGZdySyoOiaKgoErpXTXUfAIaZXdxxLGqKPeFDIFRsNsMGCFrycghuODagqeGAfJYJvrtbMeFlZOYbgwEafiIIUiZhvdxgUkSqDnuAUSDXbXCExfKyOhodUfqMkFYAFvIBjOTbEjWkwWWgpsbqAKJqyauhTTFDcKvcqoiqKGdQNdMEvpMsQBIlTjRSWKDYGuDOuVJPjMOHiPDxbQqhWlfHhnvgoJZRNgvNtuTBMEeKdRMiVkmQTGijBbHukFOmjVNleAsYafPKvCsBProJsrIlbCNAVaRuMmvwSJIsLNEkUKELGWeFxHbGEjtSkMjvCKtrYjUIRUawXnsdMPSJWRjNasJkCZclqEEruWJUkWDCIssJvqyIMUGdVEUrXvWJFosUyuSXwpkmuREoBBMnFaJBZpQnwuQXnKnloRdMoVslMejIrMMqJtNXFcOhdAoJhGbTiDHJgfMneASPJtOpyQkaRVDxVkopPBoDSHnVXSfEEIirjZvBeXqZvPhLjrlWFlIIbrrCHtTANDePEttSRjLFeWUsdOaFH&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>updater</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=IkHxXDGfkviopkoVjDmZbInTwWGGARrZZEAwTkwAoChgAWhCEuPEfukKqDQdwbXRFhQcLDagFLAEPglYsHklPmcBhSpqFQtfvqYQIkWwDQkIOsCdPbISCCuokBDRwAXGYIYAiPYFEqpefPQlGmyWjHvsjUgirLEKxIebGyQQTZnkhnSbHWCblYrWJFwCZKiwReOPaTjkrAdOSacctDomvTfameQsEQSYUakLFOxSEbekOhbHmVjMxEDiqauUpmHCbpKOOlOrRxZLBqbCLcBusxvHTYTtdVQRxtpMLOtgQYPwPaGWmYhNiKKICpQNRXubgLutxMmudwcTktBbQpgVrPvNflHrRETPvJZfyYjxjNNfDyJcSOyxkHBOyCVcXfgddsBdJeeGlcKoxSajYxvRuwinQdCMlYXZgCIyiDYCQTmNnfYpfxaqYykZVuIPIfJmtSGOpTpjmLkNjVyVLggbFneXHOlZYeZDKKNTsvITBITSnpDbCRCOSCIBZuYiVTlJjsHmrvjfuCWuCxdTrmZDRGHUWSjgWaFaTaFpSoMxRZwGHxIYwvjjWhENYCVAqswkamODfAUvGaQoHMmxvQPjsxHTRupXAxkUeuUBFGnssaChtSDMECFtcxOeKgOkhuHepUsxbDaAMqhDfZmakRJTfeDAREiUNmQaSLclnZPMnvZeJoBERUseFvmOPQfIkYhrLwCaFgrEExcCbcEsGlcYsonjxQQcllJOCHqTNWCnfsCYusCgPjBVatfROacYlWDDmxMgWLUXWrcxTUrtZNVkItqhUcOSXyknoXQoeCqavIRsoYuFoxdSQCtVxoGJLRpCeTmOdsTfZIZrGySBRJhbwaenxLMIgZntLHIVkgsaESvBRWPfUwgMqpHYpVcIVsjpsLfbpKdODhAbYMlaLCimjvFnYNPkwmwSBsFdbLnIQYywCZvsKTPlSxDMIRmgRfCAGjbTdqTKPvJSJWpbNdyOiJmdCFFwhowtXLrURWLghSqhSEdOGybHaOGQxbeBApFiPETYIwFFDekulLsCCTaHjdkhZETRfvTGetwDcDIvhxIFPdQjNpHiEkhWPTBmHEKnFpJhZFiMFAKcuVBExUMtbJnihAFfPQtrUKDETpFnaWabGpmyqcWgsMpeBDlcGcFxiqnIrAStEGfYrrjUCEUwVDntjIKZyqAFkEnqQBSmuZoODRZkYMNWTEZdaviMhMvUpSxoQnKdlkAbSvkjohbtmcTavGuJiUDbYSirCdkPLqlEaTCihQlrvlcajYCWKgDjXqTulbqQBxsYJcgoSPdhHwbJCNnJmnwVQIieOFUhEiMfrYiuZfjbNcYewSejjLtHKGuSFvtpTVqWlIfbeAOGenbOPPrVmUIVxFEbobPhhAVMEIhliShBJMgGQRIVEoZdGHntDQRrvOxkoUllXZtiCPxTimrRBivoGAKOamcPIYFuxtDYGgbAVRfoHjnTrvaGdShAGRWyElYsnWXmDChpGJZnDqYvhOgYkHhvOAOrulboUZQMAwxgAMBPiNEsOdmHcnUMUXSnuWbbvmYjTvvHkeggtQVSyrFvokXXVWFBnojaBMermRLlhIAZEhdgGBnrVlwIMqBNLnYfeNYMkwhQKMyMZPYgojngFiAnQgwdvTwHcdGhJOKuAuPxRxmXDSaTVTKHdQyNkFiPWWGtVjUPYVgLaAhbyrryipahqkgjKUUqhwlQlfIcZjGnFITSDiAcIhnnkFNUteIEWbLDNNnWiDLveGIhLBUdYIJVxULGGcIRjbhughfHtTFAiBPcdBnKoBXHrPCDyGrQCUasOmNyuNJafUcCiqOtQFhMCoKJLkDdKivDxUaVySGuRlWVSUETFaTEfoGVJDvNPGFVdjcCqWMKyuyMhqiCKHpxeoXeNVXXufCrPMdYYdbIsQNYBPtwmvXAMFqxwIiTMNLCcdnNdaYkTignFBwehjWowArVKLfxcLAuKIvdSnDsRcMtCWNHAwkXLnSBZSqLjWSElZJsSEeoPuUggIrDORQyUvXxqvligVDMgqbieTuOkamCleBiCvlFdbPrJLfBnKMilXnykbDOVynjeyWJHbSeoQToDWpADTixRjAr&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>propertyName</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=PcCPcyWPNyqTnrvNcgUqBMXvPLjKceEyKsJjXLmHvRViKIEGlXHSqpIwWINnoMLjbyDLkYuKydwHnZmZMPMOwptqRpSYHcxONONrEhpxDcBujNWaCRHuqkibUcWyfbAIIJhlLRVWXRrGcygdJpDSpyFlAJmnoQBudKHEtCaBOcogVPrVFQoejWwpDNsdwTrZqrDBNFAhvbBjhqQaxTIQnoKbbqllRgUFNLLZrtZvZRPYlhYTIstHhMnsxEnvOQSuKYSfKhmRAZwGoNMgfsxKFRRGxXWMtStbWEmwKyBqZGBucFxkbmWdrmJmqLCoIfTDfNOyOwWJIaFxRSjTuQQMAvTKxSmNHbQJAwwZDHZwsNPoaDpEIIHMetroaODDbvHrkVoZfHTTeHykqOeNUNMgRPQtOXWdIupaJDHrTIjXApiAyGeSAlEdOlLEGIVCFnEHtrjJPrunSmJvdQvniXkZdUJEKhOksbLWdfPMKcFcvjDXGgakDoBBMWuvMWhmpMeiObPrrTxZWJQqrqkfIQEbcFUMjeSPOcIuBdKGQRwvnLXDcfbgWbhyNvjpnwXFkQAogReqseAOTxsEcYrXmBYUjIMmtuFAGiBXtFyxWIfdQMsNFVbBnnHCCQkmDTZeTkGGORLPAaORdZhhjwubEBXBEELuKlHVBqesJFQoaZtOKYuqTMbgGLxHEbKwWCbnOwCCVfAUuLOyswMJYEmJjRjpwwCYuvSispISStNaMIJSBFjxgdDSlPXyiyDdrAkaEDibyiTADANPeWSfBSWBJHBHUDRRparpuZJBVMWHwKwaeCHZwykYvyZuCOGaBLyuIiCbWdXbNWuEmTgtCFvtTTtVltGHUyOEbZKPGaBHfbdbNraBGlJyVSaXlThrXASXnRxXLSTSYgpTnIAuXderyrVETItXxoDnFGrekTZYXoZtWvVuqOWpLBNTBdcBvftcWggePTTHIfkcpvZvLMlQRNHWxcAndcIiwcSyBKtWskotVHNILwCCYWGxKANTwfUNDAFaPDaVpVrSibFpcSjxHQfINrrTWhPnBsCjEssEjFnjeYgsGBrDbGqmLsCdkuKgjhGcYErtsAUPViyAKXVNFykdNGAAKEBHudDthopWMnynOPeYayOYgLapVrHpAOyEPsDAjFwsXEQEPPaGpuSEUxhEeaasXoarxNMtkxiVARAWVjJfAQwoXIrpPuuHwLUStPAvknnpKFFjhCMbFdlmiJAbfBbEsLQvBJvqonVymeLHPryKUmlSoBUuiosWgOPLPIZvARKBuHaTrgBPVLuonIxOXAuHEAvHdjlKGvStgvGudjCYwCgxnNTMQdpqxJufKvSZDsywLAaqEGiKuDvgpuOuiOPoxUwvCxrGWqJaXsdpjHUGHLXiODsQYYUdFXQWrugXSVSbFYltRAAfYWXWEsxvIsyRiRfFdtrNjcRmPDcRIlddFMKHtXRkeXwGclUJQMPLFZXMsDdywTGpOcQEygYxUClmwxIEBlRnoLpwHpPRAryufhPoFKbtMbfYwDPyWeGeFkEsLMmDImUTstIEjwGHrmJeobMkwaFHxZjpHBbEBXqpPOcqrWTFETjuKkXUuiLYiJFZSMsTIvpoWXoxIldSDKEEsAyollWtBSJYVXMqFTGFHaafvDlIkjgkLMbafFxLhZgLrALaswMCsZVgPYNmtDvuMvRipnOXQyqtduRCxMntGOkjurVfhDVldMRyXSOsGJhwPhxVAWmDxargWOdDSfDrBUIXbSGmvnnZtJYoXCrlCqVMrnrIXDhZMIxVKMFORjkItZGXMqSqFVvLuaFLteaSqTUhlSfsHVRJpvuFROjhxXHHnqibcbVIjJfUwgAMEyRExtoikJViJMGAmyWRjjqfEkhmFBbrxxUsJpNcqOBOTLGTKWCOFxJIJSlhaXfqFtZRknttnEkPJZNZgxpnIhKcmOkTymkvOutIwEFChRtunXpRnfaopxwQUVhuiWjsTlhBYhUQotlQKpWptFCQmpScLeSdxAqKcQAKkvErVKEkXejZmXPHnYTsjUQwnpUdHWOCSJjWBXwRdbtTOMcTOOTGljTfAanvdESrVUBXotVLCLlsCgOj&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>tags</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ltFfgJhsQMvlpHONrwPkQTkxiFyGGBZMlUdwJgcIntXPBYbUmfjHCVuxMuvnVLObkedvsTJunUywmuKphbaEUjBCESKOMefBXAWmqXtKMGXbhgpvxQZaBhKIvyybxaFSruyqOSZXviUZHQwlBnrxHRtXceMNYmpmEiNnphWOKoeYZrhCqtEWMqtOcQTntWpMPrnOPlHBroOiGgJiJqrVoZCUQUxjNrrmhSYLXXIRGOtuCRcLXjHIuwlafmPoaYLlnmGMwmkNDsTtbuLFpVTIesmVlYxqRCwParIuxZffsejBgYFpborMmeZjZjtwvxhWvGQtmeHSgsbeFQKixIEbXqCEknQkXNBlTOKiMtoQUDvHoFsAVekGXqytpICyxccFwkwNDkfBIDejelqWQWJImHYfkEvUnqeQtRXvqnlZYNTCuTjVABEBaZnJZSywhGVWOFHNAAwOAHHnZgNNfgHKPnrpQrWRIvJUwYugGEUvBFxQKCfcjnJqyNLtpbcHnpSAUfYTXQwvsXqNwOsdojTSIcgESZhMXqALjoyudNFpwmgWOjOCVVPaBRMWbfWpwtbsQKvFYMssPnbwtvQwFVAPBhydbcLtVjZfcdluCqCouAApfTPSvjGIdiQdVOdLEITPBZRQSfwUUdTTXhrlaNhfUDxmavOxhDIZnotcdbNIbbXLvDmipEqOburXyyyyjYcdhaKELtlFtblAyXrVsksmbLsanRNsaEFOaGyFNxpGcLBWZJggUSYMMZjhGuwULZwbHFZFRJagyqhtvFBgpgsDVHRFIkAcEeDGMqtDXPbPqEqUQcuAlXGFaLYnLNZFhbrvgoYEPnAJeIQZWsSivvdVwKltvSKGeCiljChJsoAOiXnIHkCFuACjpeludbpeLxRxHvnucGZaJSqJGmWeGFfbZvmCWAySWSJZQwEXwGVkZBWUgwUVtZQPyHaxAlcjPtgeXoiFDqdYfIxSEMQaitPcCHAWmciJcOCmCeqZAIyyGnnWoDIRlXXiAPVOqGNALqoTxZoDmCbkldkeKDprTkQmdQgXPAVVhoZbGDyGOLIGmaSDIeZykCoQqPiLdVFivNUFMeFCrXSpguVkWVeWtCRFXDSAprPxAkqsQZGNYQAcwscZfdQLPDXrbPIipTUlGxklmsEgtbWHhCgPKJcwTCWpaaWfDUKOMhKvtmdmUUclxMBbPCpWwPogPpuObUAexIGYZGvdtQxrgKCTWnIGlEPqxifBLDAaWLmMRrKTQFYSWtYBbpnTXChqsSHmkjdCKnqGtvfSkJAQfWGWNjmcyBjIPCHYhFRDeNGTuiMZMaHleJJCaswyctZomBSbbNfXINmuaEXChkBEoqunHgVitrYEiYiIOFFMKcyxuVfiMoOATJHeVJOQsbvyPvwtGaPcUYgOjLJxxCRuREISJGGXUQVFYXyufnQRlVimNwfLoenDkVnWbqQLeutjlGtdvJJWNHYHaKkwiBTcBjBTcKhPRFbNihZtGIRYOSYUHFkbtMTVgvdyxTFBAoeZFmpDjZVkdgouExOFDbnwVKGrUnDsSqUwFLVgjppdaAQENfgXoKfZDQybsanmkZbiRkOqhcsXqwrIxRlljNPHHCjvIpLKfmSRVqhQeolQreSDgDrWXRfIodrijadsAFJIbqdHfOawSqAHNKjFSntnniGqKAlAmFJgIfZBYGDTBANMnTAjceUPhYKFBEoaWfIqXAmHFGsmyWvNUOJDFbXXbBhbvdhcKAelhBwwNhMQAxPjCQXYoCxQimNIhHCIUZMqoMjVornBRjjnKihrjuCeFWRYvsYDTCaZSxXrteAibvltVnwIlKUsfQKLgkmruhExnTxMmDHqkOgBofwThghmUlkrZjPuVCIdJcqEXJkGFsaYOwsNCyAdnidtmqgOyvQSqjQJkWyLHSmpeuLQFusRPGNODvpSpecKFEFLsVGqLlpdIEycfQqxNFHbNLKbfCxlbnjBvfnsajvVchrsafJLpXSjgAKWWlFqmyLrOpcgRFRDunEQGagsSAhqhMEsfuVyYwUMwLQxYxLwvZnFfMOsVRbHwRDHkCWGfQmcPKqEGaqwCCYInuaUQlTtJNADmVAG&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>associationType</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=yGPCgVbcisAsRCrjZvXnkBSwhycrsejOBMaepHdgwegQmqLcfsGNHRrTDhEDHOqBkpZKmHNQGmKvjONDTdgejrQlZGMsLQxHUsHAVbwlVvRMbMCvcCghiIESkgTEvRlnjQCPisKBhwFuwtMyEIsEblHDjKpMYhKeIfxOgkKdrVsIwkkpwjQQyojDfZdbRfesxhNIBmNqtjZvnhPuKffLASFPyCDOOrucWsPfmwuQrURtpRaFSBjucdEmtcPKJKKHTCtJrvDrCTJLSCqESoqnKnHQgugROvqXBgNpVMWtAaJJHnRlyRrxAZWNYRErntNPtxqdlcDxbCWQdGaXuSDSuLmNRwrxennRfSRshowAhkCIsOdXckPxCxDVCjsFAlShhiiSdaIGFGyHLUGbMZrghsbeCTglLeCMFcdMbrulCbGUtdHRPGaHfZrPrQYUXCECRAyPlPYtnVZUXpDZgiLonbpUhOPKjDdYdPVTrCxTaXUvBBKZXXufXmdWiRLpEsINWEOjcfGahgNJZdGQQKfwNTMEpfDgiIPeTcoWKKAWJfKLTUrYLlVlNYcPOZcqdVZGDiJIcMBsZpNMZIsURlisqddJweBYHVvkfKVkAwoRalwhrGvElmrjFXDIWFUqhrOcKdlsxMgSQWcLFVfvmxVEPGbEITVPhcSHPtbXPKchEVyQixQrTxFWSsbkDyMGDWeYBcpfUZcHMGTBUxnkOxvWheoHXDTBPhJdoYOeEbnhstAGdNbBgPWcoGBNUcPDvTbxIHseRaoxbbVbCmNZUJecljKTFWWwolkWpyXyaRtptiLqLoiMtafGVVHKRFPxvaoWMmvpLvPPyxlBrVKAIPlKGDrucFkosyYOuULiYIBBPCRvoirEOHtEyjQXfxcihAAOCRQiYOQhgQyanbPqyWDrIYbJpDxuZCwFvLdWahhXcOEDJEfNgVRJwkcdTtunTotYmGwTYUCqrwytAeSqUFnqmjvuYKdOEYEBTnYpRIDVpkXGVfgenWFshydLIKAGpsHWMFMWaPmCglhuGDCZOaoVrQcXKZgUNdZyRfpfFTfHkqKjnxDwcaQUktVSGYZMVYkWZqtPjgwnRUbQcguITOowdOBJUCkpofwrdmRhBWSDhYJDRnVdbodenTHpDWVMpVfADjAbfxRUkUrPiHPhErLcBKMHKDuEnXNDlaofmxUmkyUxyxRTDjXEOhGbxNXqPwScOeArrLbkVxGaKCNqffllGvHDtgnhfogNYAHxtpEKsNjNXBsosmGPbFbToBTmDeChDiwZRMLsajMSseASgiQspxtGXTkgZimvqERvxRpxFBAHmeUJKeLtYqNRThhEMciCAWmBrZVEFMrVrBQxAbKnRooDrqEMHVhtkspaCFDPFXNGqHTjLmMQLvDQKxsFVyCdRSEBekjXVMUFeQvMBbNeHwiiPwxPBvceOLZnGjZtqLBVoJWWYJjZXRlywJaYTvShjKiHtxeCoYqhOFWMPgLsAKqZmPibKVuWEGDiPYqboPHqyAPnEusRDQCjOeWMZxbWnlRYbsFyspfjfsnxdAsJyWFXLEjnQgwFpmlCrqPUlFMKhOnHhyryVBEfXeeMNbpBsGlDGUIaGSKtQARCSxYhCwiGSLyWkneJZRRpBIJlLxCQDMptWybjklGLqYhniTLnYuCRevGcSPNDWuJGbOpwmtsdnRuHnAviDsBeuNOAYhGbcqrlmWTFpEeOcIEUWeltsuYbxqDymyLWuKDovUfFknqQfwNSLoHBgdiCaqmKiZevsoPHifwWVVEYVRMbKIdsvMsOydbXnsSlsBbVZAAjJRTIKMUXutiqommwnmgOimvLMwdWUBNxJUlOSwCmTcjiBQLWBeMJXhDNHdplstapTMVZkMQSfsErQEujoZcoQcccQYEaYgXuVocDDrqGwBARxcRFgPYVSPMJIPimITtFSWoJxYEWpDbUxCJfpxbqkjMxsLvOeBCaTpZoefTvjcOrSAFnEVnKufTFRaucrCGFToqjRncVruapJEFwbjewRhOPYFywxPVQcJrUNKjRYRhbJPSBrqpyjeqqNnvtVINXlIvbBgeBWOyqRSWtnXXjfYfIIDuTdnlP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>leftOp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=EbERptSwLWtIiUnkRXTcoYpwJCKpLrMcBQpmQxIvyurGhAtnfOxDrIQCMXNHDwbhKTfexEMREWxOUMJZZRqJdcIaEWgqYQyjMRcVLSmHgcPpikhcZySLmrFidiXxFmJMxXXrbthgumyTJbqAGcrgktoUOcmLWGmrxAxPsIRqTtJvxCnWKfmAUOavcSdpnIhRMMgpDrTTFHFktkjFFIWpZKAhlLKxXKFCUFYltyZsDqSdUlPZdLNQcSXnfVyjqjINSijZPmSulfsfZCKMyFTufvRhihQfJbqplrHZJuZIWWiDvADtOxLZFHeeMEimaIXJUCyuJZNwAgJVjxbDQbnyjNHFRjYqasIqtvJEJeZGaHoAotqQjmQXMEoDDJbtLqkqNSAoJjoXjxPwwpPGYFKOEuiiJcNJfQYHJhaJZRVWEltkOqhSJVrQtOUTdXfaUviXvsqfZRnMRNBvirmLKWCyDFoKFPTMdvtsHUaJHoxfjXlkVrTrNNqfHwxRtwpkZgktrmdaYCvvqgstaukpnTBPTatDGGTtnUUtJJPcFmNiTFMNkiOTdyQeXgAyhLLFTfEaZoJldVhyXbaTEgsJqXXrdvSXwESxEnfKbCiPHmaurWMEqpaJtklibwBXkHIJYVoVROUsNekMmqefZtMxpIQKlTGjcvQSyAFkasdNZZysjLLAsxWuYGMXSuXcytQPWwCLJknvCrNPhdEUhGbAVIYdDCJImHXTlfWCAiskHqxwDoEYCpiPUHwPNftmHjydenOGMXIAqlSpJtdumEqtEgHdjtTMObfOjDnssckAjduenDqpsvFTfsYNTXoAJAvvvxAPEIxLpYSrUIpIhjMyLquLfgDQNRHZRVFIDbhsIOcPItILoZMoSOPLOkYvUYRqLHhCHtMXWZgrIoEATmkTfwhgHPDKaPrEtALDyryxoGVRmHKoenvCQxLEfQckiEjVwkLrnWUvUhiHQpEndVwglPDJvWDJdtnckKrTEGxPjoKHUYCQfkesvkkFUSikZMtacIvrpuulxwnerXGHNwdMTlcTjeNQupASwMndvGSQmjrkruUNnGJtSDScDFsduvZWWtQTcJDQKhyHqFwiNZGrSYiOvOqhwDdoDdEdcgVGFBBblobPKvcmsMgVyRvWAZbiLjBOdFuOScuEySqlbtnldoHFvPwUdxrESeNTyRkGfQMEbvkaKLmLuBpqUUowtExCgvcCIXcLTAsmvIMoBWPLCgxYjtNIwRGrOpnyEtMdYnbTsVMwFPHlnZYljZjmxKphlMiLPrciCYgkFbsogwKjCpfJAiEMGnFyUGohtKAtQYFPFrNrbkFYkkBiDmjQxaFKnfKGZypKDEkdVPnncvKnjdqsWoDMcQeGLxnEOrranbOFBBehVGINPByNNCXTeerniXoieQPVRZIIlVHfGHguDADPyuEDxeliQfpvcxuNgxJWiKBhjTlBJHhyiBKdcgEaHTDHXXeftSvNxtFwlPMLbYUgqBVxLVpWbIXItmWrWukTWPUflKrhNpfxxicowEycpMcYWqQyurlaVCujiBoQwQjlnDYvMgEiSRHCHpjKxSbnnPRKTUoaDrxnveENyabJTFStZMiJkyKGZpOiRietsEeDHHbnhUGHeZRWhYTXhkEMyrXvWhNOubnRwBHHMtmXkNqRrNPUCYgFfpieUIOYfJuTPGQCfNCtxOtkTdiqjSjFCxfHWomJtSnIUaFeVqLMgkGGDhxwwTeNOwmrhEoyAgpPxIyKAVLjRBduEVkmoUZGaIZNjYQCiPyvAiJkMtWlbdKEDceFmAgbZrRABxvWZOGNQNlFAYkOJAfuBYsQkXiIoQxgVdhJBsXCnurKRswoepnFPxBTgJFTtpjfJSrlAZoYctRTeXakmXnQrPSIaDofPMEGFeGCscrkZtutlifLpDtpDOuGDsFgOxcHcPiqjPYkSuMhLwaJewTfqGoypDxjIEkPlnnJLhvjPBDwWSysRDkapJuRIUFQIsbkOLSuVwVVQPHMXKADMSCJYrTUjgUhaeVpRsNfmsqEeoYUSHayXCSLSDkcVcigUAymnwTualUxrKyEbXAVSJoeyDsBRjsSRboqgYldnaSe&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>rightPropertyValue</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=FiZHIAgEyZgJwbouQfbViUjxghdaAdFPChoxgVloVRKswelrpXLSrhXrmkySZlrbthDrJcVmOMWSmFcXJamigLmPhukaeqgZrONbSqhTamSfCXXyZmrFILkOgZcCGWMrSODVejGCKRWwGtQFTdJkcKcsepuHUUXHCPiUgRpHvInaDfZZEHMCXsWPJSNfSHhossCyMaokUpHbgBqhoHVEdKAjpjJQRfIeArUreeNBjydNvTWMAsjSHAupMDaViPplZIBqVhFZPGlpGGfLPPhggXsgplZWndEgWkMxhHOmuNpyHPWDPbCTFLArjgWetKardOOjhDAPeZoROiPYYuPgIPCxTbKBjlyXZpsYdRqLdiqeQXLkcQviujOsvmRwWKKjDUYSlQyCEuhbIiNogjWcDgAnNMHWHDMiQoxWmugyGSbLRPVEuGxUKWPBVuiDSWuuIKhrHEGTVWLSPuxukocxgVrOpXigXoTqJXkPRZaTXSHvoFqYlXPMTwSoqKAPLTvTrEDOFkGExVlkFOrJTneIlBSCcYWsMUvlxClmqcJNPDRPpXdOyWPIrtcFnKIGuTdVmopSWFZSFVkrvlGlbTSKQlbGduhAKlTogGTvJuAXiRrbeRvgvbdREQOhayNHSKIFgtZJgQWmQqfStveQrcOcnkjJoMhZvmaImZskJfiuhLUGGeeXOGeCnJIhoKNHnUGMVwDQxoZsYuZmYeHujcyJRHdvmfNwQHJOjjaDTqqxyKSixFkLkGZjPESuttSIWevXiXEPwdgucWBgjatfaMJkBvfNwILGAfceFYpaSraLAJSSfMxApnnSaXFEkHOGpYAayhHwvwjCYVfKmnnQtOYcYGFBcyUEipxRTLhfbCfkQogWFGYHycSnXomxaUjfOyTiMbaudRxEfIUPXOpmwSJkWNJcZJVZdRkpfgyeTelmUHGPxTIQREPpYrcRsUKCdFSxdoKynHgtXWKVHTGntYIVDxaOyjvVWdDPinQLGpAGyeyvcpZTpDhyZtZdjIfagtKtqgYZwpnxbRHJsxdqsXfxfaqOtJALZEsYDtDdGSGCpvwGofYOZufuQuFmlVxWsCpCmReZOBZfbXBLbDRFEpcnFXswWZbCTViNXZYKSdQjfPUdceZwEDEOXbrrGpgkRerHuJIwWqWhsxkkwcYXruTcIJVsMuuLKfjFnVgenPPJZQyPeZdoJSFlWHskpZNCyerRUkbSrWaapvUxXUjrkkmsGksJPJKllGUXjeyHdKfiUEiZfVnbsUmBraYRnMnYDJFnKuyhmdXranfpjFonRaeIVACpFjpCPGadaggXWqgTIIgKHgeBxpapdrQTkfTdTOBlGdJlIjUCLPIOtluGDtdrpGjabLynlJZokyFZstwWwZXvnCLaNAAYtqbejbRhyElbeuYhJrIYmJuPKBAxVtaNcJuQhfPaIbOVfZsPQSUZCPrlFIPwsGfSsRgedVsehdCYuUpZjIQNQbdpZGhmyHZLRngPoGAFsovtAiLtiFJuBdGwiTtLPqdKbiXPUjMmsHtkdeCiTADNNMoNKaNVBsvyDOtCiNTLbFiiqotZOaZAmLbQHoUUrPlnnjohTPackrZJrUEPRUDaXNFrAaBOlYHlckkjEhotqyuKxVxAQotTquCbhGLhAGxIBTbAaBNHidEQqmgJhXkQoFFDqEJwHwPcQIUxhPJxnuqIaBsNhKBrYxjmbCddgoRVwOQQEImjZoIAgvXqtdRbNNOqXiLAdWqYPomoqhNvuHYOovkjqVCWVpOcatgndlimShEFDiMgydDoRdDsNqPtopsbXeDtLXCoJWcgXLtotByEPfVnhYsSKRJQuxTQUhjGlCWGjbvreQftYXxQFEGAqDYCkvgnkTBvemERVIiiUUOUFbaexVdjCFbbSdcSCAssnGLIoJLMjjMPUNfXXXiVMhNSxnOdvDRegJvnMtYKykagjsHMZBVmvqLurFIfAHMuSSxrBjKJtETPYruJVXvIoBTXwiDHeIWuJyqjRBmbGTPSeJpcVERmCWcdDOMOvIWkbySlbrAuWyZtaBiwrkjhPYDhCAJOYEuLDDHByODjPDjSyVYUmPlbudQnhLsUsdfr&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?associationDest=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>leftPropertyValue=ZAP&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>toDate=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>updatedBefore=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>updaterNameNegate=on</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>toDate</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Attack</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>GET https://localhost:9443/carbon/search/advancedSearch-ajaxprocessor.jsp?updatedBefore=ZAP&amp;<wbr></wbr>createdAfter=ZAP&amp;<wbr></wbr>commentedUser=ZAP&amp;<wbr></wbr>updaterNameNegate=on&amp;<wbr></wbr>mediaType=ZAP&amp;<wbr></wbr>updatedAfter=ZAP&amp;<wbr></wbr>author=ZAP&amp;<wbr></wbr>resourcePath=ZAP&amp;<wbr></wbr>updatedRangeNegate=on&amp;<wbr></wbr>authorNameNegate=on&amp;<wbr></wbr>rightOp=lt&amp;<wbr></wbr>associationDest=ZAP&amp;<wbr></wbr>resourceName=ZAP&amp;<wbr></wbr>updater=ZAP&amp;<wbr></wbr>propertyName=ZAP&amp;<wbr></wbr>tags=ZAP&amp;<wbr></wbr>associationType=ZAP&amp;<wbr></wbr>leftOp=gt&amp;<wbr></wbr>rightPropertyValue=ZAP&amp;<wbr></wbr>toDate=LLkQMXfydjWoEFhwSUJoqgMqiiIdZoIEdxMMgcnJJtxPZEDIVihKPTihybHbCvQZFOHHtJJenvnYfpNGKjcHVWeCnGWJyExaKveDvqSNminLQHBWWASDPbwyCHMYCCkXPWrQCRCZwypkPwUqRqGwCRbvqhfZRWikZHIKsbpKWYFuYfVDGIeuqLShXWcuYscXFfdQgpnbaFUKPLZacYePoXOAjOOIQTCdlkfAPwRJlMjbWgCEbKPemfEUQNyGgMCJmiduABbgxPQpvJypseOKxHJtVywokkxrkaxVPlgJQSvQVWYUCYvneYEOElLjWmiZmiExVtyhwvmEYFPMlRVrqeyKioxQPuZFNnlvCxbhxAijTBYeFKJGNCZiKrAyWTWktvvdEXIFPgkokBJWhLkmLjLXNpRKlSTlbcUrFPdpyGIGESPwrXjSbGeWRAdbrfMSIJYABhtDLEdpyIpwfhZORSpicjpJgGuPTBCZDNAoypZPBNTuZlmhmWwJddLUEtfWrUbVYlNFhbquXGjCnOrMfVIIpFHJcoZSPIcumStLqEUbQTdYXdkAEtITtxaFtZwOlPSMMYQIXIVPNCXAmlDgJuxJVDGNohGhTLGCxUqappwoLildJnxASjjQUgkvdgMGbnPBupvmhdgICjvYHeUHxtSLphqxniDWqPjevCWYpqobgAsdTgKWvrpresIduOSVtoMqAUQAmontyDpHyxXhJaPkEESDhLIKHuTbqDANZQArOfdtVevdtGqLnmSfXlWeygknwSAmSaSgiWNdNMMKhfyojIXxtROUVnlIODnRCcekuRLCqdsmMDTpbsaprtrwQqFHJevWncVnfXbfQOnuLcgIvphAjEYntchBFKpXkAskmkkcwtpTaMGWqFgccZiGcFHsRCymIUmpyanKHHCyxLaMMGTWBhqYGZXSJKFBUbXbnnGtnqcUHyZeQKHDhAAEEdcICVlSNNQJVTahGgfWUYXKyHgoMJKbPlhAUBaxbQWwTDPNHcCObYXcMlahOdegrHXrfDjMcJOFRmRVuvAMIaQwsDAnBOONuXXIhubeRCisdoDLZPeSUHepLYyBfvgBnCaRWkKpTXSPnZbZMebZBjxXAdcJGcHcmoHHTANyrcebGJnSxuvMwTfietPmNbJLZfkKjFTXIvYnAIlybXSwpiroguOCgtebYWPrlitmHMlcHldVkmgjxabvegRoNQPmDmDSStXppDdCKGRNAehbBjFuRlelNbltpnOvWknlvTPHJssmrDJHIGagOTHaAyQYKauFvrxAagLOROSUvbuQRXklAsOnaAWayhrNilrkiiyjVKMXaAnUqPcNOHOgCtyliRZXTJGWJaKKrvEbqkMbkAPUDqvJtInhWFVcJXYOqjLhMFqKvRKqKpUBaiFewdLDgTSmvofaMQSZAeutLWqyKSxdKQMiRoFEgtVDMJuHRQBIJgISpAAPQXEbgpxhjmlqouQXnqHoolbLoHFAwvUbqoChFmvLBFXWXlOmIcjmrgybLoIcIKspXothbnSBhkGdwuDfpBXIjLVobRgHJQYUbDGROMBGcHpGmdNpVrFTTCeHqLsZuRNrBxVKCCnAeUtQdgGrnJBJJumyuJeGCHiUagCfDZaEOsfQHwZIgnXhDYsvKQcWkocSdxkPUbDUZeEJKuqBBdaWeQJQrALMsfmNESXQkdTmvXdbQRKZOGocAJbvoqUHQCvqCXEKUtHHpYnlmBeiMWbFEaVLLyfcIVjGyymraBaFHyOLOxncpVgNwbJaUontDxXuERxqhOaVIomlOUiJMQIgTfUurQPhhSwhqUNNTovZkOvxHahQoNZegEBfcEVUMhaOfcBLcTBaXsbjaBtDTEpGrVRGDmjXmIWMXMsYAETFinSJUVOJOdjZAXIJAsIyauELJjfsGgEuNwZZlrEZWbUxmTesApeulSOnoNaKYEJwIAKqNmHxxaIuGTrLNGkHMtyFeCVQWqfsvBvSAmSeZbYrEfdHewTDYsHiqwmSpCPLEZxmgfZfdKdcKxnXZPSCefqjTAEPEoWleuCTDGjgdZVkLWFfUNAmCAJlLvbbofyEogfAiMfmegGwQSXskQtKXhMv&amp;<wbr></wbr>mediaTypeNegate=on&amp;<wbr></wbr>fromDate=ZAP&amp;<wbr></wbr>createdBy=ZAP&amp;<wbr></wbr>commentedText=ZAP&amp;<wbr></wbr>commentWords=ZAP&amp;<wbr></wbr>createdBefore=ZAP&amp;<wbr></wbr>createdRangeNegate=on&amp;<wbr></wbr>leftPropertyValue=ZAP HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0
+Pragma: no-cache
+Cache-Control: no-cache
+Content-Length: 0
+Referer: https://localhost:9443/carbon/search/advancedSearch.jsp?item=registry_search_menu&amp;<wbr></wbr>region=region3
+Cookie: JSESSIONID=E5700869524D3EFA2E11EF6538EDC475
+Host: localhost:9443
+
+</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>28</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Rewrite the background program using proper return length checking.  This will require a recompile of the background executable.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Other information</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>
+<p align="justify">Potential Buffer Overflow.  The script closed the connection and threw a 500 Internal Server Error</p>
+</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">https://www.owasp.org/index.php/Buffer_overflow_attack</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>120</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>7</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="yellow" height="24">
+<a name="low"></a><td width="20%" valign="top"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Low (Medium)</font></strong></td><td width="80%"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Cookie set without HttpOnly flag</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/robots.txt</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../robots.txt; Path=/</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../robots.txt; Path=/</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/sitemap.xml</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../sitemap.xml; Path=/</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../sitemap.xml; Path=/</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/index.jsp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../carbon/admin/index.jsp; Path=/</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../carbon/admin/index.jsp; Path=/</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/logout_action.jsp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>wso2.carbon.rememberme=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>wso2.carbon.rememberme=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>4</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Ensure that the HttpOnly flag is set for all cookies.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">www.owasp.org/index.php/HttpOnly</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>13</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="yellow" height="24">
+<a name="low"></a><td width="20%" valign="top"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Low (Medium)</font></strong></td><td width="80%"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Cookie set without secure flag</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/robots.txt</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../robots.txt; Path=/</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../robots.txt; Path=/</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/sitemap.xml</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../sitemap.xml; Path=/</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../sitemap.xml; Path=/</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/index.jsp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../carbon/admin/index.jsp; Path=/</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>requestedURI=../../carbon/admin/index.jsp; Path=/</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>3</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted tunnel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">http://www.owasp.org/index.php/Testing_for_cookies_attributes_(OWASP-SM-002)</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>614</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>13</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="yellow" height="24">
+<a name="low"></a><td width="20%" valign="top"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Low (Medium)</font></strong></td><td width="80%"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Incomplete or No Cache-control and Pragma HTTP Header Set</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">The cache-control and pragma HTTP header have not been set properly or are missing allowing the browser and proxies to cache content.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/login.jsp</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/product/about.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/docs/userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/docs/signin_userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/images/favicon.ico</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.form.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.validate.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.cookie.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.widget.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/WSRequest.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/main.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/cookies.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/customControls.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/js/dialog.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/yui/build/yahoo-dom-event/yahoo-dom-event.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/yui/build/animation/animation-min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>400</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate, private; and that the pragma HTTP header is set with no-cache.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Web_Content_Caching</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>525</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="yellow" height="24">
+<a name="low"></a><td width="20%" valign="top"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Low (Medium)</font></strong></td><td width="80%"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Web Browser XSS Protection Not Enabled</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/login.jsp</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/product/about.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/docs/userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/docs/signin_userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/global.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/styles/css/main.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/css/jqueryui/jqueryui-themeroller.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/css/dialog.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/documentation.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/carbonFormStyles.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/images/favicon.ico</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.form.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.validate.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.cookie.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.widget.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/WSRequest.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>421</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Other information</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>
+<p align="justify">The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: </p>
+<p align="justify">X-XSS-Protection: 1; mode=block</p>
+<p align="justify">X-XSS-Protection: 1; report=http://www.example.com/xss</p>
+<p align="justify">The following values would disable it:</p>
+<p align="justify">X-XSS-Protection: 0</p>
+<p align="justify">The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).</p>
+<p align="justify">Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).</p>
+</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet</p>
+<p align="justify">https://blog.veracode.com/2014/03/guidelines-for-setting-security-headers/</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>933</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>14</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="yellow" height="24">
+<a name="low"></a><td width="20%" valign="top"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Low (Medium)</font></strong></td><td width="80%"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">X-Content-Type-Options Header Missing</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/login.jsp</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/product/about.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/docs/userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/docs/signin_userguide.html</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/global.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/styles/css/main.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/css/jqueryui/jqueryui-themeroller.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/css/dialog.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/documentation.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/css/carbonFormStyles.css</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/images/favicon.ico</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery-1.6.3.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.form.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/dialog/js/jqueryui/jquery-ui.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.validate.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.cookie.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.core.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.widget.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/jquery.ui.tabs.min.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/WSRequest.js</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>421</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p>
+<p align="justify">If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Other information</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>
+<p align="justify">This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p>
+<p align="justify">At "High" threshold this scanner will not alert on client or server error responses.</p>
+</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>
+<p align="justify">https://www.owasp.org/index.php/List_of_useful_HTTP_headers</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>WASC Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>15</p>
+</font></td>
+</tr>
+
+</table>
+<p></p>
+<table width="100%" border="0">
+  
+  
+<tr bgcolor="yellow" height="24">
+<a name="low"></a><td width="20%" valign="top"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Low (Medium)</font></strong></td><td width="80%"><strong><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Password Autocomplete in browser</font></strong></td>
+</tr>
+  
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Description</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">AUTOCOMPLETE attribute is not disabled in HTML FORM/INPUT element containing password type input.  Passwords may be stored in browsers and retrieved.</p>
+</font></td>
+</tr>
+<TR vAlign="top">
+<TD colspan="2"></TD>
+</TR>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/admin/js/main.js</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" id="txtPassword" name="password" size="30"/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/userstore_config/userstore-config.jsp?item=userstores_mgt_menu_add&amp;<wbr></wbr>region=region1</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" name=propertyValue_3
+                            id=propertyValue_3 style="width:95%"
+                                   value=""/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/workflow-impl/add-bps-profile.jsp?item=workflow_engines_add_menu&amp;<wbr></wbr>region=region1</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" name="bpsPassword"/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/tenant-mgt/add_tenant.jsp?item=govern_add_tenants_menu&amp;<wbr></wbr>region=region1</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" name="admin-password"
+                                               id="admin-password" style="width:400px"/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/user/add-step1.jsp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" name="password" style="width:150px"/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/user/change-passwd.jsp?isUserChange=true&amp;<wbr></wbr>returnPath=../userstore/index.jsp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" name="currentPassword"/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/user/change-passwd.jsp?isUserChange=true&amp;<wbr></wbr>returnPath=user-mgt.jsp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" name="currentPassword"/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>URL</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>https://localhost:9443/carbon/user/change-passwd.jsp?displayName=ZAP&amp;<wbr></wbr>username=ZAP</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Parameter</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>input</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%">
+<blockquote>
+<font size="2" face="Arial, Helvetica, sans-serif">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Evidence</p>
+</font>
+</blockquote>
+</td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>&lt;input type="password" name="newPassword"/&gt;</p>
+</font></td>
+</tr>
+  
+  
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Instances</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>8</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Solution</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">Turn off AUTOCOMPLETE attribute in form or individual input elements containing password by using AUTOCOMPLETE='OFF'</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>Reference</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p align="justify">http://msdn.microsoft.com/library/default.asp?url=/workshop/author/forms/autocomplete_ovr.asp</p>
+</font></td>
+</tr>
+  
+<tr bgcolor="#e8e8e8" valign="top">
+<td width="20%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>CWE Id</p>
+</font></td><td width="80%"><font size="2" face="Arial, Helvetica, sans-serif">
+<p>525</p>
+</font></td>
+</tr>
+
+</table>
+</body>
+</html>
