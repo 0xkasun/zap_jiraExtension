@@ -22,53 +22,56 @@ public class JiraRestClient {
 
 		String auth = new String(Base64.encode("kmbkck1@gmail.com:kmbkck211"));
 
-		try {
-			//Get Projects
-			String projects = invokeGetMethod(auth, BASE_URL+"/rest/api/2/project");
-            //System.out.println(projects);
-            JSONArray projectArray = new JSONArray(projects);
-			for (int i = 0; i < projectArray.length(); i++) {
-				JSONObject proj = projectArray.getJSONObject(i);
-				System.out.println("Key:"+proj.getString("key")+", Name:"+proj.getString("name"));
-			}
+        XmlDomParser xmlParser=new XmlDomParser();
+        xmlParser.readXmlDoc();
 
-			//Create Issue
-
-//			String createIssueData = "{\"fields\": {\"project\": {\"key\":\"PROD\"}," +
-//					"\"summary\":\"REST Test\",\"description\": \"Creating of an issue using project keys and issue type " +
-//					"names using the REST API\",\"issuetype\":{\"name\":\"Bug\"},\"priority\":{\"name\":\"High\"}}}";
-
-            HtmlParser htmlParser=new HtmlParser();
-            Document doc =htmlParser.ReadHtmldoc("res", "sample.html");
-            String issueList[] = htmlParser.CreateIssueList(doc, "PROD");
-
-            int issueCount = Integer.parseInt(issueList[999]);
-            for (int i = 0; i < issueCount; i++) { //create Issues in jira
-                System.out.println("Issuelist " +i+issueList[i]);
-                String issue = invokePostMethod(auth, BASE_URL + "/rest/api/2/issue", issueList[i]);
-                System.out.println(issue);
-                //JSONObject issueObj = new JSONObject(issue);
-                // String newKey = issueObj.getString("key");
-                //System.out.println("Key:" + newKey);
-            }
-
-
-//			//Update Issue
-//			String editIssueData = "{\"fields\":{\"assignee\":{\"name\":\"test\"}}}";
-//			invokePutMethod(auth, BASE_URL+"/rest/api/2/issue/"+newKey, editIssueData);
+//		try {
+//			//Get Projects
+//			String projects = invokeGetMethod(auth, BASE_URL+"/rest/api/2/project");
+//            //System.out.println(projects);
+//            JSONArray projectArray = new JSONArray(projects);
+//			for (int i = 0; i < projectArray.length(); i++) {
+//				JSONObject proj = projectArray.getJSONObject(i);
+//				System.out.println("Key:"+proj.getString("key")+", Name:"+proj.getString("name"));
+//			}
 //
-//			invokeDeleteMethod(auth, BASE_URL+"/rest/api/2/issue/DEMO-13");
-
-		} catch (AuthenticationException e) {
-			System.out.println("Username or Password wrong!");
-			e.printStackTrace();
-		} catch (ClientHandlerException e) {
-			System.out.println("Error invoking REST method");
-			e.printStackTrace();
-		} catch (JSONException e) {
-			System.out.println("Invalid JSON output");
-			e.printStackTrace();
-		}
+//			//Create Issue
+//
+////			String createIssueData = "{\"fields\": {\"project\": {\"key\":\"PROD\"}," +
+////					"\"summary\":\"REST Test\",\"description\": \"Creating of an issue using project keys and issue type " +
+////					"names using the REST API\",\"issuetype\":{\"name\":\"Bug\"},\"priority\":{\"name\":\"High\"}}}";
+//
+//            HtmlParser htmlParser=new HtmlParser();
+//            Document doc =htmlParser.ReadHtmldoc("res", "sample.html");
+//            String issueList[] = htmlParser.CreateIssueList(doc, "PROD");
+//
+//            int issueCount = Integer.parseInt(issueList[999]);
+//            for (int i = 0; i < issueCount; i++) { //create Issues in jira
+//                System.out.println("Issuelist " +i+issueList[i]);
+//                String issue = invokePostMethod(auth, BASE_URL + "/rest/api/2/issue", issueList[i]);
+//                System.out.println(issue);
+//                //JSONObject issueObj = new JSONObject(issue);
+//                // String newKey = issueObj.getString("key");
+//                //System.out.println("Key:" + newKey);
+//            }
+//
+//
+////			//Update Issue
+////			String editIssueData = "{\"fields\":{\"assignee\":{\"name\":\"test\"}}}";
+////			invokePutMethod(auth, BASE_URL+"/rest/api/2/issue/"+newKey, editIssueData);
+////
+////			invokeDeleteMethod(auth, BASE_URL+"/rest/api/2/issue/DEMO-13");
+//
+//		} catch (AuthenticationException e) {
+//			System.out.println("Username or Password wrong!");
+//			e.printStackTrace();
+//		} catch (ClientHandlerException e) {
+//			System.out.println("Error invoking REST method");
+//			e.printStackTrace();
+//		} catch (JSONException e) {
+//			System.out.println("Invalid JSON output");
+//			e.printStackTrace();
+//		}
 
 
 

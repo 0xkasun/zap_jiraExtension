@@ -34,7 +34,7 @@ public class HtmlParser {
         String type = "Bug"; // TODO: change type as necessary
         String priority = null; // available : Highest High Medium Low Lowest | used : High Medium Low
         String tableData;
-
+        String createIssueData;
         Elements tables = doc.select("table");
 
         for (int j = 1; j < tables.size(); j++) {
@@ -70,7 +70,7 @@ public class HtmlParser {
                 }
             }
             //System.out.println(description);
-            String createIssueData = "{\"fields\": {\"project\": {\"key\":\"" + projectKey + "\"}," +
+            createIssueData = "{\"fields\": {\"project\": {\"key\":\"" + projectKey + "\"}," +
                     "\"summary\":" + "\"" + summary + "\"" + ",\"description\":" + "\"" + description + "\"" + "," +
                     "\"issuetype\":{\"name\":\"" + type + "\"},\"priority\":{\"name\":\"" + priority + "\"}}}";
 
