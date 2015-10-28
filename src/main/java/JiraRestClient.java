@@ -44,7 +44,7 @@ public class JiraRestClient {
 
             int issueCount = Integer.parseInt(issueList[999]);
             for (int i = 0; i < issueCount; i++) { //create Issues in jira
-
+                System.out.println("Issuelist " +i+issueList[i]);
                 String issue = invokePostMethod(auth, BASE_URL + "/rest/api/2/issue", issueList[i]);
                 System.out.println(issue);
                 //JSONObject issueObj = new JSONObject(issue);
