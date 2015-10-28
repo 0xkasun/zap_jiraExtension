@@ -23,7 +23,7 @@ public class JiraRestClient {
 		String auth = new String(Base64.encode("kmbkck1@gmail.com:kmbkck211"));
 
         XmlDomParser xmlParser=new XmlDomParser();
-        xmlParser.readXmlDoc();
+        xmlParser.parseXmlDoc("PROD");
 
 //		try {
 //			//Get Projects
