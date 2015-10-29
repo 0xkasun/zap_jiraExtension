@@ -14,16 +14,39 @@ import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 
 import javax.naming.AuthenticationException;
+
 public class JiraRestClient {
 
     private static String BASE_URL = "http://localhost:8081";
 
     public static void main(String[] args) {
 
-		String auth = new String(Base64.encode("kmbkck1@gmail.com:kmbkck211"));
+        String auth = new String(Base64.encode("kmbkck1@gmail.com:kmbkck211"));
 
-        XmlDomParser xmlParser=new XmlDomParser();
-        xmlParser.parseXmlDoc("PROD");
+        try {
+
+            //to parse xml
+
+            XmlDomParser xmlParser = new XmlDomParser();
+            String issueList[] = xmlParser.parseXmlDoc("PROD");
+
+
+            //to parse html
+
+//            HtmlParser htmlParser=new HtmlParser();
+//            Document doc =htmlParser.ReadHtmldoc("res", "sample.html");
+//            String issueList[] = htmlParser.CreateIssueList(doc, "PROD");
+
+            int issueCount = Integer.parseInt(issueList[999]);
+            for (int i = 0; i < issueCount; i++) { //create Issues in jira
+                System.out.println("Issuelist " + i + issueList[i]);
+                String issue = invokePostMethod(auth, BASE_URL + "/rest/api/2/issue", issueList[i]);
+                System.out.println(issue);
+            }
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
+
 
 //		try {
 //			//Get Projects
@@ -72,11 +95,6 @@ public class JiraRestClient {
 //			System.out.println("Invalid JSON output");
 //			e.printStackTrace();
 //		}
-
-
-
-
-
     }
 
     private static String invokeGetMethod(String auth, String url) throws AuthenticationException, ClientHandlerException {
